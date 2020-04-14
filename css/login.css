@@ -86,7 +86,7 @@ main {
   background-position: center;*/
 }
 
-main p {
+main p, main .login-page {
   grid-column: 2;
 }
 
@@ -171,5 +171,5 @@ a:active {
 .login-page {
     margin-left: 5px;
     margin-right: 5px;
-    
+
 }

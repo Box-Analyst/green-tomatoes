@@ -86,7 +86,7 @@ main {
   background-position: center;*/
 }
 
-main p, main .login-page {
+main * {
   grid-column: 2;
 }
 

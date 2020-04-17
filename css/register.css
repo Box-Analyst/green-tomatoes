@@ -6,6 +6,7 @@ body {
   margin: 0;
   grid-template-rows: min-content auto auto;
 }
+
 header {
   grid-row: 1;
   color: white;
@@ -31,7 +32,8 @@ header {
 }
 
 /* Full-width input fields */
-input[type=text], input[type=password] {
+input[type=text],
+input[type=password] {
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
@@ -40,7 +42,8 @@ input[type=text], input[type=password] {
   background: #f1f1f1;
 }
 
-input[type=text]:focus, input[type=password]:focus {
+input[type=text]:focus,
+input[type=password]:focus {
   background-color: #ddd;
   outline: none;
 }
@@ -128,12 +131,12 @@ nav ul li a:hover,
 nav ul li a:active {}
 
 main {
-    grid-row: 2;
-    display: grid;
-    grid-template-columns: 1fr 5fr 1fr;
-    text-align: left;
-    padding-top: 8em;
-    right: 0%;
+  grid-row: 2;
+  display: grid;
+  grid-template-columns: 1fr 5fr 1fr;
+  text-align: left;
+  padding-top: 8em;
+  right: 0%;
 
   /*
   background-image: linear-gradient(to top, white, transparent),
@@ -219,3 +222,9 @@ a:active {
   header #menuClose {
     margin-right: 3em;
   }
+
+  main {
+    grid-template-columns: 1fr 10fr 1fr;
+    padding-top: 6em;
+  }
+}

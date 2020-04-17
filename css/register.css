@@ -1,0 +1,221 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: #000000;
+  display: grid;
+  text-align: center;
+  margin: 0;
+  grid-template-rows: min-content auto auto;
+}
+header {
+  grid-row: 1;
+  color: white;
+  background-color: black;
+  font-size: 1em;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit button */
+.registerbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity: 1;
+}
+
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+
+
+#green {
+  color: lightgreen;
+}
+
+#red {
+  color: lightcoral;
+}
+
+nav {
+  margin-right: 3em;
+}
+
+nav ul {
+  list-style: none;
+  padding-top: 1em;
+}
+
+nav ul li {
+  display: inline;
+  background-color: #90ee90;
+  padding: 0.25em 0.5em 0.25em 0.5em;
+  margin-left: 1em;
+  border-radius: 50px;
+}
+
+nav #menu,
+header #mobiMenu {
+  display: none;
+}
+
+nav ul li a:link,
+nav ul li a:visited {
+  color: black;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+nav ul li:focus,
+nav ul li:hover,
+nav ul li:active {
+  background-color: #f08080;
+  text-decoration: none;
+}
+
+nav ul li a:focus,
+nav ul li a:hover,
+nav ul li a:active {}
+
+main {
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+    text-align: left;
+    padding-top: 8em;
+    right: 0%;
+
+  /*
+  background-image: linear-gradient(to top, white, transparent),
+    url(./media/land.jfif);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;*/
+}
+
+main * {
+  grid-column: 2;
+}
+
+footer {
+  grid-row: 3;
+}
+
+a:link,
+a:visited {
+  color: #1a8cff;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:focus,
+a:hover,
+a:active {
+  color: #50b347;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+@media (max-width: 750px) {
+  nav {
+    padding-top: 5px;
+  }
+
+  nav ul {
+    display: none;
+  }
+
+  nav #menu {
+    display: inline;
+    font-size: 35px;
+  }
+
+  nav button {
+    background-color: black;
+    color: white;
+    border: none;
+  }
+
+  header #mobiMenu {
+    background-color: black;
+    width: 100%;
+    margin-left: -1.5em;
+    padding-left: 1.5em;
+    justify-content: space-between;
+    animation-name: mobiMenuOpen;
+    animation-duration: 1s;
+  }
+
+  @keyframes mobiMenuOpen {
+    from {
+      margin-left: 100%;
+    }
+
+    to {
+      margin-left: -1.5em;
+    }
+  }
+
+  @keyframes mobiMenuClose {
+    from {
+      margin-left: -1.5em;
+    }
+
+    to {
+      margin-left: 100%;
+    }
+  }
+
+  header #menuClose {
+    margin-right: 3em;
+  }

@@ -171,10 +171,6 @@ main #welcome #morebtn {
   margin-top: 2em;
 }
 
-main #more {
-  color: black;
-}
-
 main #resCard {
   background-color: whitesmoke;
   border: 2.5px solid gray;

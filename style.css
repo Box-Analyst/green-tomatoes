@@ -91,10 +91,6 @@ a {
   color: lightcoral;
 }
 
-nav {
-  margin-right: 3em;
-}
-
 nav ul {
   list-style: none;
   padding-top: 1em;
@@ -153,6 +149,40 @@ main * {
 #slides {
   max-width: 100%;
   height: auto;
+  border: 5px solid black;
+  border-radius: 2em;
+}
+
+main #welcome {
+  text-align: center;
+  padding-bottom: 5em;
+  height: 100%;
+}
+
+main h3 {
+  text-align: center;
+}
+
+main #welcome h3 {
+  margin-bottom: -0.5em;
+}
+
+main #welcome #morebtn {
+  margin-top: 2em;
+}
+
+main #more {
+  color: black;
+}
+
+main #resCard {
+  background-color: whitesmoke;
+  border: 2.5px solid gray;
+  border-radius: 1em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
 }
 
 footer {
@@ -199,9 +229,17 @@ a:active {
     width: 100%;
     margin-left: -1.5em;
     padding-left: 1.5em;
+    padding-right: 1.5em;
     justify-content: space-between;
     animation-name: mobiMenuOpen;
     animation-duration: 1s;
+  }
+
+  #slides {
+    display: block;
+    max-width: 175%;
+    margin-left: -50%;
+    height: auto;
   }
 
   @keyframes mobiMenuOpen {
@@ -222,10 +260,6 @@ a:active {
     to {
       margin-left: 100%;
     }
-  }
-
-  header #menuClose {
-    margin-right: 3em;
   }
 
   main {

@@ -91,10 +91,6 @@ a {
   color: lightcoral;
 }
 
-nav {
-  margin-right: 3em;
-}
-
 nav ul {
   list-style: none;
   padding-top: 1em;
@@ -199,6 +195,7 @@ a:active {
     width: 100%;
     margin-left: -1.5em;
     padding-left: 1.5em;
+    padding-right: 1.5em;
     justify-content: space-between;
     animation-name: mobiMenuOpen;
     animation-duration: 1s;
@@ -222,10 +219,6 @@ a:active {
     to {
       margin-left: 100%;
     }
-  }
-
-  header #menuClose {
-    margin-right: 3em;
   }
 
   main {

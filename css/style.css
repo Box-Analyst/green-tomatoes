@@ -84,8 +84,13 @@ main {
   background-position: center;*/
 }
 
-main p {
+main * {
   grid-column: 2;
+}
+
+#slides {
+  max-width: 100%;
+  height: auto;
 }
 
 footer {

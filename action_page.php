@@ -16,7 +16,7 @@ if ($conn->connect_error) {
 
 $emailErr = "";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if (isset($_POST['submit'])) {
 	$email = test_input($_POST["email"]);
 	if(!filter_var($myEmail, FILTER_VALIDATE_EMAIL)){
 		$emailErr = "Invalid email format";

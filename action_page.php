@@ -10,6 +10,8 @@ $email = $psw = $psw-rpt = "";
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
+} else {
+	echo "Connection Successful";
 }
 
 $emailErr = "";
@@ -20,6 +22,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$emailErr = "Invalid email format";
 	}
 	$psw = test_input($_POST["psw"]);
+} else {
+	echo "Post failed";
 }
 
 function test_input($data) {

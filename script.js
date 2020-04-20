@@ -1,3 +1,17 @@
+window.onload = function load() {
+  showSlides();
+
+  setInterval(() => {
+    showSlides();
+  }, 2500);
+
+}
+
+function showSlides() {
+  var randomNumber = Math.floor(Math.random() * 5) + 1;
+  document.getElementById("slides").src = `./media/landing/${randomNumber}.jpg`;
+}
+
 function mobiMenuOpen() {
   document.getElementById("mobiMenu").style.display = "flex";
   document.getElementById("mobiMenu").style.float = "left";

@@ -58,10 +58,12 @@
   	<!-- notification message -->
   	<?php if (isset($_SESSION['success'])) : ?>
       <div class="error success" >
+      	<p>
           <?php 
-          	<p>echo $_SESSION['success'];</p> 
+          	echo $_SESSION['success']; 
           	unset($_SESSION['success']);
           ?>
+      	</p>
       </div>
   	<?php endif ?>
 

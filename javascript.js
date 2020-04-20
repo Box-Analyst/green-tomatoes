@@ -8,7 +8,7 @@ window.onload = function load() {
 }
 
 function showSlides() {
-  var randomNumber = Math.floor(Math.random() * 3) + 1;
+  var randomNumber = Math.floor(Math.random() * 5) + 1;
   document.getElementById("slides").src = `./media/landing/${randomNumber}.jpg`;
 }
 

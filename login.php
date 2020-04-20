@@ -1,3 +1,4 @@
+<?php include('server.php')?>
 <!DOCTYPE html>
 <html>
 
@@ -28,7 +29,8 @@
     </div>
   </header>
   <main>
-    <form action="tbd">
+    <form method="post" action="login.php">
+	<?php include('errors.php'); ?>
       <div class="container">
         <br><br><br>
         <h1>Login</h1>
@@ -42,9 +44,9 @@
 
 
         <hr>
-        <p>Not registered? <a href="./register.html">Create an account</a>.</p>
+        <p>Not registered? <a href="./register.php">Create an account</a>.</p>
 
-        <button type="submit" class="signinbtn">Sign in</button>
+        <button type="submit" class="signinbtn" name="login_user">Sign in</button>
       </div>
 
 

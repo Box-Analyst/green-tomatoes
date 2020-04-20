@@ -1,3 +1,4 @@
+<?php include('server.php') ?>
 <!DOCTYPE html>
 <html>
 
@@ -28,7 +29,8 @@
     </div>
   </header>
   <main>
-    <form method="post" action="action_page.php">
+    <form method="post" action="register.php">
+	<?php include('errors.php'); ?>
       <div class="container">
         <br><br><br>
         <h1>Register</h1>
@@ -36,7 +38,7 @@
         <hr>
 
         <label for="email"><b>Email</b></label>
-        <input type="text" placeholder="Enter Email" name="email" required>
+        <input type="text" placeholder="Enter Email" name="email" required value="<?php echo $email; ?>">
 
         <label for="psw"><b>Password</b></label>
         <input type="password" placeholder="Enter Password" name="psw" required>

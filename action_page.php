@@ -2,7 +2,7 @@
 <?php
 $servername = "localhost";
 $username = "scaduser";
-$password = "GoAsim1";
+$password = "GoAsim1!";
 $dbname = "green-tomatoes";
 
 // Create connection

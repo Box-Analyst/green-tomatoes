@@ -59,7 +59,7 @@
   	<?php if (isset($_SESSION['success'])) : ?>
       <div class="error success" >
           <?php 
-          	echo $_SESSION['success']; 
+          	<p>echo $_SESSION['success'];</p> 
           	unset($_SESSION['success']);
           ?>
       </div>

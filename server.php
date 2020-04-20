@@ -2,7 +2,6 @@
 session_start();
 
 // initializing variables
-$email    = "";
 $errors = array(); 
 
 // connect to the database

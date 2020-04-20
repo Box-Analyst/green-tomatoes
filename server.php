@@ -66,7 +66,7 @@ if (isset($_POST['customerinfo'])) {
   if (empty($state)) { array_push($errors, "State is required"); }
   if (empty($zip)) { array_push($errors, "Zip is required"); }
 
-  if (!preg_match("/^[a-zA-Z ]{24}$/",$fName)) { array_push($errors, "Only letters and white space allowed"); }
+  if (!preg_match("/^[a-zA-Z ]$/",$fName)) { array_push($errors, "Only letters and white space allowed"); }
   if (!preg_match("/^[0-9]{11}$/",$phone)) { array_push($errors, "Only 11 numbers without slashes or dashes allowed"); }
   if (!preg_match("/^[a-zA-Z ]{2}$/",$state)) { array_push($errors, "Only 2 letters allowed"); }
   if (!preg_match("/^[0-9]{5}$/",$zip)) { array_push($errors, "Only 5 numbers without slashes or dashes allowed"); }

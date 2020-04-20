@@ -24,9 +24,9 @@
     <h1><a id="green">Green </a><a id="red">Tomatoes</a></h1>
     <nav>
       <ul id="horizontal-list">
-        <li><a href="/" class="active">Home</a></li>
-        <li><a href="/about.html">About</a></li>
-        <li><a href="/login.html">Login</a></li>
+        <li><a href="index.php" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="login.php">Login</a></li>
       </ul>
       <h1>
         <button type="button" id="menu" onclick="mobiMenuOpen()">
@@ -45,16 +45,25 @@
     <!--The div element for the map -->
     <div id="map"></div>
     <script>
-// Initialize and add the map
-function initMap() {
-  // The location of Uluru
-  var uluru = {lat: -25.344, lng: 131.036};
-  // The map, centered at Uluru
-  var map = new google.maps.Map(
-      document.getElementById('map'), {zoom: 4, center: uluru});
-  // The marker, positioned at Uluru
-  var marker = new google.maps.Marker({position: uluru, map: map});
-}
+      // Initialize and add the map
+      function initMap() {
+        // The location of Uluru
+        var uluru = {
+          lat: 35.3130513,
+          lng: -93.0248498
+        };
+        // The map, centered at Uluru
+        var map = new google.maps.Map(
+          document.getElementById('map'), {
+            zoom: 11,
+            center: uluru
+          });
+        // The marker, positioned at Uluru
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
     </script>
     <!--Load the API from the specified URL
     * The async attribute allows the browser to render the page while the API loads
@@ -62,7 +71,7 @@ function initMap() {
     * The callback parameter executes the initMap() function
     -->
     <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAORPi5WeBMKbG-KAPzNWWFHh7am24muzw&callback=initMap">
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAORPi5WeBMKbG-KAPzNWWFHh7am24muzw&callback=initMap">
     </script>
   </main>
 

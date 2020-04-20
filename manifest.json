@@ -1,0 +1,23 @@
+{
+  "dir": "ltr",
+  "lang": "English",
+  "name": "Green Tomatoes Hotel",
+  "scope": "/",
+  "display": "standalone",
+  "start_url": "https://green-tomatoes.thayn.me/",
+  "short_name": "Green Tomatoes",
+  "theme_color": "transparent",
+  "description": "",
+  "orientation": "portrait",
+  "background_color": "transparent",
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "./media/favicon.png"
+    }
+  ],
+  "url": "https://green-tomatoes.thayn.me/",
+  "screenshots": [],
+  "generated": "undefined"
+}

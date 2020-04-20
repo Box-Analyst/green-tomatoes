@@ -1,3 +1,15 @@
+<?php
+  session_start();
+
+  if (!isset($_SESSION['username'])) {
+  	$_SESSION['msg'] = "You must log in to reserve a room";
+  }
+  if (isset($_GET['logout'])) {
+  	session_destroy();
+  	unset($_SESSION['username']);
+  	header("location: login.php");
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,9 +36,9 @@
     <h1><a id="green">Green </a><a id="red">Tomatoes</a></h1>
     <nav>
       <ul id="horizontal-list">
-        <li><a href="/" class="active">Home</a></li>
-        <li><a href="/about.html">About</a></li>
-        <li><a href="/login.html">Login</a></li>
+        <li><a href="index.php" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="login.php">Login</a></li>
       </ul>
       <h1>
         <button type="button" id="menu" onclick="mobiMenuOpen()">
@@ -41,7 +53,28 @@
   </header>
 
   <main>
+	<div>
+  	<!-- notification message -->
+  	<?php if (isset($_SESSION['success'])) : ?>
+      <div class="error success" >
+      	<p>
+          <?php
+          	echo $_SESSION['success'];
+          	unset($_SESSION['success']);
+          ?>
+      	</p>
+      </div>
+  	<?php endif ?>
 
+    <!-- logged in user information -->
+    <?php  if (isset($_SESSION['username'])) : ?>
+    	<p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
+    	<p> <a href="index.php?logout='1'" style="color: red;">logout</a> </p>
+    <?php endif ?>
+	<?php  if (!isset($_SESSION['username'])) : ?>
+    	<p> <a href="login.php?msg='1'" style="color: red;">You must Login to reserve a room</a> </p>
+    <?php endif ?>
+  </div>
     <div id="slideshow-container">
       <img src="./media/landing/1.jpg" id="slides">
     </div>

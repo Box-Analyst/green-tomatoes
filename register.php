@@ -1,3 +1,4 @@
+<?php include('server.php') ?>
 <!DOCTYPE html>
 <html>
 
@@ -12,9 +13,9 @@
     <h1><a id="green">Green </a><a id="red">Tomatoes</a></h1>
     <nav>
       <ul id="horizontal-list">
-        <li><a href="/" class="active">Home</a></li>
+        <li><a href="index.php" class="active">Home</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="./login.html">Login</a></li>
+        <li><a href="login.php">Login</a></li>
       </ul>
       <h1>
         <button type="button" id="menu" onclick="mobiMenuOpen()">
@@ -28,7 +29,8 @@
     </div>
   </header>
   <main>
-    <form method="post" action="action_page.php">
+    <form method="post" action="register.php">
+	<?php include('errors.php'); ?>
       <div class="container">
         <br><br><br>
         <h1>Register</h1>
@@ -36,7 +38,7 @@
         <hr>
 
         <label for="email"><b>Email</b></label>
-        <input type="text" placeholder="Enter Email" name="email" required>
+        <input type="text" placeholder="Enter Email" name="email" required value="<?php echo $email; ?>">
 
         <label for="psw"><b>Password</b></label>
         <input type="password" placeholder="Enter Password" name="psw" required>

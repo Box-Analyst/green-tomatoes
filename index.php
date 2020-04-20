@@ -39,7 +39,7 @@
         <li><a href="index.php" class="active">Home</a></li>
         <li><a href="#about">About</a></li>
 		<?php  if (isset($_SESSION['username'])) : ?>
-        <li><a href="login.php?logout='1'">Logout</a></li>
+        <li><a href="index.php?logout='1'">Logout</a></li>
 		<?php endif ?>
 		<?php  if (!isset($_SESSION['username'])) : ?>
         <li><a href="login.php">Login</a></li>

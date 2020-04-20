@@ -40,7 +40,7 @@ if (isset($_POST['submit'])) {
   	//$password = md5($password_1);//encrypt the password before saving in the database
 
   	$query = "INSERT INTO LOGIN (emailAddress, isAdmin, password) 
-  			  VALUES('$email', '0', '$password1')";
+  			  VALUES('$email', '0', '$password_1')";
   	mysqli_query($db, $query);
   	$_SESSION['username'] = $email;
   	$_SESSION['success'] = "You are now logged in";

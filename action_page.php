@@ -31,7 +31,7 @@ function test_input($data) {
 }
 
 $sql = "INSERT INTO LOGIN (emailAddress, isAdmin, password)
-VALUES ('$email', false, '$psw')";
+VALUES ('$email', '0', '$psw')";
 
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";

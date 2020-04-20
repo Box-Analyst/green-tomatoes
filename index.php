@@ -37,7 +37,7 @@
     <nav>
       <ul id="horizontal-list">
         <li><a href="index.php" class="active">Home</a></li>
-        <li><a href="#about">About</a></li>
+        <li><a href="about.html">About</a></li>
         <li><a href="login.php">Login</a></li>
       </ul>
       <h1>

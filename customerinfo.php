@@ -39,16 +39,16 @@
 		<label for="Fname"><b>Name</b></label>
         <input type="text" placeholder="Name" name="Fname" required value="<?php echo $fName; ?>">
 		  <label for="Phone"><b>Phone</b></label>
-        <input type="text" placeholder="Phone Number" name="phone" required value="<?php echo $phone; ?>">
+        <input type="text" placeholder="Phone Number" name="phone" maxlength="10" required value="<?php echo $phone; ?>">
 		    <label for="address"><b>Address</b></label>
         <input type="text" placeholder="Address" name="address" required value="<?php echo $address; ?>">
 		    <label for="city"><b>City</b></label>
         <input type="text" placeholder="City" name="city" required value="<?php echo $city; ?>">
 		      <label for="state"><b>State</b></label>
-        <input type="text" placeholder="State" name="state" required value="<?php echo $state; ?>">
+        <input type="text" placeholder="State" name="state" maxlength="2" required value="<?php echo $state; ?>">
 		   <label for="zip"><b>Zip</b></label>
-        <input type="text" placeholder="Zip" name="zip" required value="<?php echo $zip; ?>">
-        
+        <input type="text" placeholder="Zip" name="zip" maxlength="5" required value="<?php echo $zip; ?>">
+
         <hr>
 
 

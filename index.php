@@ -1,5 +1,5 @@
-<?php 
-  session_start(); 
+<?php
+  session_start();
 
   if (!isset($_SESSION['username'])) {
   	$_SESSION['msg'] = "You must log in to reserve a room";
@@ -14,7 +14,6 @@
 <html lang="en">
 
 <head>
-  <meta name="theme-color" content="#90ee90" />
   <link rel="icon" type="image/png" href="./media/favicon.png">
   <title>Green Tomatoes Hotel</title>
   <meta name="Description" content="">
@@ -24,7 +23,7 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
   <link href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" rel="stylesheet">
   <!--Inport Scripts-->
-  <script src="./javascript.js"></script>
+  <script src="./script.js"></script>
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-Frame-Options" content="sameorigin">
@@ -59,8 +58,8 @@
   	<?php if (isset($_SESSION['success'])) : ?>
       <div class="error success" >
       	<p>
-          <?php 
-          	echo $_SESSION['success']; 
+          <?php
+          	echo $_SESSION['success'];
           	unset($_SESSION['success']);
           ?>
       	</p>
@@ -88,11 +87,9 @@
       <a href="#more">
         <p id="morebtn">Learn More</p>
       </a>
+      <a name="more"><br></a>
     </div>
-
-    <a name="more" id="more">
-      <h3>Experience Farming Life in Luxury!</h3>
-    </a>
+    <h3>Experience Farming Life in Luxury!</h3>
     <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in bibendum massa, faucibus interdum dolor. Duis
       nisi
       mi, faucibus non porttitor id, ullamcorper ut mi. Cras accumsan commodo lectus in egestas. Lorem ipsum dolor sit
@@ -102,27 +99,55 @@
       efficitur ipsum vitae malesuada. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus
       mus.</p>
 
-    <h3>Reservations</h3>
+    <h3 id="reshead">Reservations</h3>
+
     <div id="resCard">
-      <p>res1</p>
+      <img src="./media/landing/4.jpg" id="resimg">
+      <h4>Tomato Cottage</h4>
       <p>Lorem ipsum dolor sit amet</p>
-      <p>Lorem ipsum dolor sit amet</p>
+      <a name="more">
+        <p>Reserve</p>
+      </a>
     </div>
 
     <div id="resCard">
-      <p>res2</p>
+      <img src="./media/landing/2.jpg" id="resimg">
+      <h4>Watermelon Cottage</h4>
       <p>Lorem ipsum dolor sit amet</p>
-      <p>Lorem ipsum dolor sit amet</p>
+      <a name="more">
+        <p>Reserve</p>
+      </a>
     </div>
 
     <div id="resCard">
-      <p>res3</p>
+      <img src="./media/landing/5.jpg" id="resimg">
+      <h4>Corn Cottage</h4>
       <p>Lorem ipsum dolor sit amet</p>
+      <a name="more">
+        <p>Reserve</p>
+      </a>
+    </div>
+
+    <div id="resCard">
+      <img src="./media/landing/1.jpg" id="resimg">
+      <h4>Sunflower Cottage</h4>
       <p>Lorem ipsum dolor sit amet</p>
+      <a name="more">
+        <p>Reserve</p>
+      </a>
+    </div>
+
+    <div id="resCard">
+      <img src="./media/landing/3.jpg" id="resimg">
+      <h4>Wheat Cottage</h4>
+      <p>Lorem ipsum dolor sit amet</p>
+      <a name="more">
+        <p>Reserve</p>
+      </a>
     </div>
 
   </main>
-  
+
   <footer>
     <p>footer</p>
   </footer>

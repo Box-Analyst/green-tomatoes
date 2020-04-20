@@ -1,3 +1,4 @@
+<html>
 <?php
 $servername = "localhost";
 $username = "scaduser";
@@ -40,3 +41,4 @@ if ($conn->query($sql) === TRUE) {
 
 $conn->close();
 ?>
+</html>

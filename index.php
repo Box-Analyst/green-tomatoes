@@ -38,7 +38,12 @@
       <ul id="horizontal-list">
         <li><a href="index.php" class="active">Home</a></li>
         <li><a href="about.html">About</a></li>
+		<?php  if (isset($_SESSION['username'])) : ?>
+        <li><a href="index.php?logout='1'">Logout</a></li>
+		<?php endif ?>
+		<?php  if (!isset($_SESSION['username'])) : ?>
         <li><a href="login.php">Login</a></li>
+		<?php endif ?>
       </ul>
       <h1>
         <button type="button" id="menu" onclick="mobiMenuOpen()">
@@ -69,7 +74,6 @@
     <!-- logged in user information -->
     <?php  if (isset($_SESSION['username'])) : ?>
     	<p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
-    	<p> <a href="index.php?logout='1'" style="color: red;">logout</a> </p>
     <?php endif ?>
 	<?php  if (!isset($_SESSION['username'])) : ?>
     	<p> <a href="login.php?msg='1'" style="color: red;">You must Login to reserve a room</a> </p>

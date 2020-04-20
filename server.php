@@ -2,7 +2,6 @@
 session_start();
 
 // initializing variables
-$email    = "";
 $errors = array(); 
 
 // connect to the database
@@ -22,7 +21,7 @@ if (isset($_POST['submit'])) {
   if ($password_1 != $password_2) {
 	array_push($errors, "The two passwords do not match");
   }
-
+  if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {array_push($errors, "Invalid Email format"); }
   // first check the database to make sure 
   // a user does not already exist with the same username and/or email
   $user_check_query = "SELECT * FROM LOGIN WHERE emailAddress='$email' LIMIT 1";
@@ -44,9 +43,45 @@ if (isset($_POST['submit'])) {
   	mysqli_query($db, $query);
   	$_SESSION['username'] = $email;
   	$_SESSION['success'] = "You are now logged in";
+  	header('location: customerinfo.php');
+  }
+}
+
+if (isset($_POST['customerinfo'])) {
+  // receive all input values from the form
+  $fName = mysqli_real_escape_string($db, $_POST['Fname']);
+  $phone = mysqli_real_escape_string($db, $_POST['phone']);
+  $address = mysqli_real_escape_string($db, $_POST['address']);
+  $city = mysqli_real_escape_string($db, $_POST['city']);
+  $state = mysqli_real_escape_string($db, $_POST['state']);
+  $zip = mysqli_real_escape_string($db, $_POST['zip']);
+
+  // form validation: ensure that the form is correctly filled ...
+  // by adding (array_push()) corresponding error unto $errors array
+  if (empty($fName)) { array_push($errors, "Email is required"); }
+  if (empty($phone)) { array_push($errors, "Phone is required"); }
+  if (empty($address)) { array_push($errors, "Address is required"); }
+  if (empty($city)) { array_push($errors, "City is required"); }
+  if (empty($state)) { array_push($errors, "State is required"); }
+  if (empty($zip)) { array_push($errors, "Zip is required"); }
+
+  //if (!preg_match("/^[a-zA-Z ]$/",$fName)) { array_push($errors, "Only letters and white space allowed"); }
+  if (!preg_match("/^[0-9]{10}$/",$phone)) { array_push($errors, "Only 11 numbers without slashes or dashes allowed"); }
+  if (!preg_match("/^[a-zA-Z ]{2}$/",$state)) { array_push($errors, "Only 2 letters allowed"); }
+  if (!preg_match("/^[0-9]{5}$/",$zip)) { array_push($errors, "Only 5 numbers without slashes or dashes allowed"); }
+  
+  
+  
+  // Finally, register user information if there are no errors in the form
+  if (count($errors) == 0) {
+
+  	$query = "INSERT INTO CUSTOMER (name, emailAddress, phoneNumber, address, city, state, zip) 
+  			  VALUES('$fName', '$email', '$phone', '$address', '$city', '$state', '$zip')";
+  	mysqli_query($db, $query);
   	header('location: index.php');
   }
 }
+
 if (isset($_POST['login_user'])) {
   $email = mysqli_real_escape_string($db, $_POST['email']);
   $password = mysqli_real_escape_string($db, $_POST['psw']);

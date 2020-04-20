@@ -147,7 +147,7 @@ main * {
 }
 
 #slides {
-  max-width: 100%;
+  width: 100%;
   height: auto;
   border: 5px solid black;
   border-radius: 2em;
@@ -233,7 +233,7 @@ a:active {
 
   #slides {
     display: block;
-    max-width: 175%;
+    width: 175%;
     margin-left: -50%;
     height: auto;
   }

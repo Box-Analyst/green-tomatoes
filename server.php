@@ -44,7 +44,7 @@ if (isset($_POST['submit'])) {
   	mysqli_query($db, $query);
   	$_SESSION['username'] = $email;
   	$_SESSION['success'] = "You are now logged in";
-  	header('location: index.html');
+  	header('location: index.php');
   }
 }
 if (isset($_POST['login_user'])) {
@@ -65,7 +65,7 @@ if (isset($_POST['login_user'])) {
   	if (mysqli_num_rows($results) == 1) {
   	  $_SESSION['username'] = $email;
   	  $_SESSION['success'] = "You are now logged in";
-  	  header('location: index.html');
+  	  header('location: index.php');
   	}else {
   		array_push($errors, "Wrong email/password combination");
   	}

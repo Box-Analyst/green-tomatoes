@@ -37,10 +37,10 @@ if (isset($_POST['submit'])) {
 
   // Finally, register user if there are no errors in the form
   if (count($errors) == 0) {
-  	$password = md5($password_1);//encrypt the password before saving in the database
+  	//$password = md5($password_1);//encrypt the password before saving in the database
 
   	$query = "INSERT INTO LOGIN (emailAddress, isAdmin, password) 
-  			  VALUES('$email', '0', '$password')";
+  			  VALUES('$email', '0', '$password1')";
   	mysqli_query($db, $query);
   	$_SESSION['username'] = $email;
   	$_SESSION['success'] = "You are now logged in";
@@ -59,7 +59,7 @@ if (isset($_POST['login_user'])) {
   }
 
   if (count($errors) == 0) {
-  	$password = md5($password);
+  	//$password = md5($password);
   	$query = "SELECT * FROM LOGIN WHERE emailAddress='$email' AND password='$password'";
   	$results = mysqli_query($db, $query);
   	if (mysqli_num_rows($results) == 1) {

@@ -181,6 +181,16 @@ main #resCard {
   padding-right: 1em;
 }
 
+main #resCard #resimg {
+  width: 103%;
+  height: auto;
+  border-bottom: 2.5px solid gray;
+  border-top-left-radius: 0.8em;
+  border-top-right-radius: 0.8em;
+  margin-left: -1.5%;
+  margin-right: -1.5%;
+}
+
 footer {
   grid-row: 3;
 }

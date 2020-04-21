@@ -79,6 +79,13 @@ if (isset($_POST['customerinfo'])) {
   	$query = "INSERT INTO CUSTOMER (name, emailAddress, phoneNumber, address, city, state, zip) 
   			  VALUES('$fName', '$email', '$phone', '$address', '$city', '$state', '$zip')";
   	mysqli_query($db, $query);
+	$_SESSION['name'] = $fName;
+	$_SESSION['username'] = $email;
+	$_SESSION['phone'] = $phone;
+	$_SESSION['address'] = $address;
+	$_SESSION['city'] = $city;
+	$_SESSION['state'] = $state;
+	$_SESSION['zip'] = $zip;
   	header('location: index.php');
   }
 }

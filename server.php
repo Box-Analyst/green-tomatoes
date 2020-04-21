@@ -55,7 +55,8 @@ if (isset($_POST['customerinfo'])) {
   $city = mysqli_real_escape_string($db, $_POST['city']);
   $state = mysqli_real_escape_string($db, $_POST['state']);
   $zip = mysqli_real_escape_string($db, $_POST['zip']);
-
+  $email = $_SESSION['username'];
+  
   // form validation: ensure that the form is correctly filled ...
   // by adding (array_push()) corresponding error unto $errors array
   if (empty($fName)) { array_push($errors, "Email is required"); }

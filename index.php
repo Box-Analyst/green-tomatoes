@@ -75,9 +75,6 @@
     <?php  if (isset($_SESSION['username'])) : ?>
     	<p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
     <?php endif ?>
-	<?php  if (!isset($_SESSION['username'])) : ?>
-    	<p> <a href="login.php?msg='1'" style="color: red;">You must Login to reserve a room</a> </p>
-    <?php endif ?>
   </div>
     <div id="slideshow-container">
       <img src="./media/landing/1.jpg" id="slides">
@@ -109,45 +106,80 @@
       <img src="./media/landing/4.jpg" id="resimg">
       <h4>Tomato Cottage</h4>
       <p>Lorem ipsum dolor sit amet</p>
-      <a name="more">
-        <p>Reserve</p>
+	  <?php  if (!isset($_SESSION['username'])) : ?>
+      <a name="more" href="login.php" style="color: red;">
+	    <p>You must Login to reserve a room</p>
       </a>
+	  <?php endif ?>
+	  <?php  if (isset($_SESSION['username'])) : ?>
+      <a name="more" href="reserveroom.php">
+	    <p>Reserve</p>
+      </a>
+	  <?php endif ?>
     </div>
 
     <div id="resCard">
       <img src="./media/landing/2.jpg" id="resimg">
       <h4>Watermelon Cottage</h4>
       <p>Lorem ipsum dolor sit amet</p>
-      <a name="more">
-        <p>Reserve</p>
+      <?php  if (!isset($_SESSION['username'])) : ?>
+      <a name="more" href="login.php" style="color: red;">
+	    <p>You must Login to reserve a room</p>
       </a>
+	  <?php endif ?>
+	  <?php  if (isset($_SESSION['username'])) : ?>
+      <a name="more" href="reserveroom.php">
+	    <p>Reserve</p>
+      </a>
+	  <?php endif ?>
     </div>
 
     <div id="resCard">
       <img src="./media/landing/5.jpg" id="resimg">
       <h4>Corn Cottage</h4>
       <p>Lorem ipsum dolor sit amet</p>
-      <a name="more">
-        <p>Reserve</p>
+      <?php  if (!isset($_SESSION['username'])) : ?>
+      <a name="more" href="login.php" style="color: red;">
+	    <p>You must Login to reserve a room</p>
       </a>
+	  <?php endif ?>
+	  <?php  if (isset($_SESSION['username'])) : ?>
+      <a name="more" href="reserveroom.php">
+	    <p>Reserve</p>
+      </a>
+	  <?php endif ?>
     </div>
 
     <div id="resCard">
       <img src="./media/landing/1.jpg" id="resimg">
       <h4>Sunflower Cottage</h4>
       <p>Lorem ipsum dolor sit amet</p>
-      <a name="more">
-        <p>Reserve</p>
+      <?php  if (!isset($_SESSION['username'])) : ?>
+      <a name="more" href="login.php" style="color: red;">
+	    <p>You must Login to reserve a room</p>
       </a>
+	  <?php endif ?>
+	  <?php  if (isset($_SESSION['username'])) : ?>
+      <a name="more" href="reserveroom.php">
+	    <p>Reserve</p>
+      </a>
+	  <?php endif ?>
     </div>
 
     <div id="resCard">
       <img src="./media/landing/3.jpg" id="resimg">
       <h4>Wheat Cottage</h4>
       <p>Lorem ipsum dolor sit amet</p>
-      <a name="more">
-        <p>Reserve</p>
+      <?php  if (!isset($_SESSION['username'])) : ?>
+      <a name="more" href="login.php" style="color: red;">
+	    <p>You must Login to reserve a room</p>
       </a>
+	  <?php endif ?>
+	  <?php  if (isset($_SESSION['username'])) : ?>
+      <a name="more" href="reserveroom.php">
+	    <p>Reserve</p>
+      </a>
+	  <?php endif ?>
     </div>
 
   </main>

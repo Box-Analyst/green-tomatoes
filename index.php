@@ -115,7 +115,7 @@
   		<li>Rates starting at $300/night</li>
 		</ul>
 		</p>
-      <a name="more">
+      <a href="reserveroom.php">
         <p>Reserve</p>
       </a>
     </div>
@@ -143,7 +143,7 @@
   		<li>Cable TV and High-Speed Internet</li>
   		<li>Rates starting at $150/night</li>
 		</ul></p>
-      <a name="more">
+      <a href="reserveroom.php">
         <p>Reserve</p>
       </a>
     </div>
@@ -157,7 +157,7 @@
   		<li>landline phone</li>
   		<li>Rates starting at $100/night</li>
 		</ul> </p>
-      <a name="more">
+      <a href="reserveroom.php">
         <p>Reserve</p>
       </a>
     </div>
@@ -171,7 +171,7 @@
   		<li>landline phone</li>
   		<li>Rates starting at $100/night</li>
 		</ul> </p>
-      <a name="more">
+      <a href="reserveroom.php">
         <p>Reserve</p>
       </a>
     </div>

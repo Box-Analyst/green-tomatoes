@@ -13,9 +13,9 @@
     <h1><a id="green">Green </a><a id="red">Tomatoes</a></h1>
     <nav>
       <ul id="horizontal-list">
-        <li><a href="/" class="active">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="./login.html">Login</a></li>
+        <li><a href="index.php" class="active">Home</a></li>
+        <li><a href="about.php">About</a></li>
+        <li><a href="login.php">Login</a></li>
       </ul>
       <h1>
         <button type="button" id="menu" onclick="mobiMenuOpen()">
@@ -48,6 +48,7 @@
         <input type="text" placeholder="State" name="state" maxlength="2" required value="<?php echo $state; ?>">
 		   <label for="zip"><b>Zip</b></label>
         <input type="text" placeholder="Zip" name="zip" maxlength="5" required value="<?php echo $zip; ?>">
+
 
         <hr>
 

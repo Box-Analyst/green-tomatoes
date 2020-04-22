@@ -3,9 +3,20 @@
 <html>
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <link rel="icon" type="image/png" href="./media/favicon.png">
+  <title>Green Tomatoes Hotel</title>
+  <meta name="Description" content="">
+  <!--Import main stylsheet-->
   <link rel="stylesheet" href="./style.css" />
+  <!--Import fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+  <link href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" rel="stylesheet">
+  <!--Inport Scripts-->
+  <script src="./script.js"></script>
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-Frame-Options" content="sameorigin">
+  <link rel='manifest' href='./manifest.json'>
 </head>
 
 <body>

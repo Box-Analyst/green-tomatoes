@@ -49,6 +49,7 @@
 		   <label for="zip"><b>Zip</b></label>
         <input type="text" placeholder="Zip" name="zip" maxlength="5" required value="<?php echo $zip; ?>">
 
+
         <hr>
 
 

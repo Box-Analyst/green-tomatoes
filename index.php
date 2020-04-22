@@ -37,8 +37,13 @@
     <nav>
       <ul id="horizontal-list">
         <li><a href="index.php" class="active">Home</a></li>
-        <li><a href="about.html">About</a></li>
+        <li><a href="about.php">About</a></li>
+		<?php  if (isset($_SESSION['username'])) : ?>
+        <li><a href="index.php?logout='1'">Logout</a></li>
+		<?php endif ?>
+		<?php  if (!isset($_SESSION['username'])) : ?>
         <li><a href="login.php">Login</a></li>
+		<?php endif ?>
       </ul>
       <h1>
         <button type="button" id="menu" onclick="mobiMenuOpen()">
@@ -69,7 +74,6 @@
     <!-- logged in user information -->
     <?php  if (isset($_SESSION['username'])) : ?>
     	<p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
-    	<p> <a href="index.php?logout='1'" style="color: red;">logout</a> </p>
     <?php endif ?>
 	<?php  if (!isset($_SESSION['username'])) : ?>
     	<p> <a href="login.php?msg='1'" style="color: red;">You must Login to reserve a room</a> </p>
@@ -102,18 +106,29 @@
     <h3 id="reshead">Reservations</h3>
 
     <div id="resCard">
-      <img src="./media/landing/4.jpg" id="resimg">
+      <img src="./media/landing/2.jpg" id="resimg">
       <h4>Tomato Cottage</h4>
-      <p>Lorem ipsum dolor sit amet</p>
+      <p>This is our primier cottage. Featuring wonderful views of our fields and pond, the Tomato Cottage is the place to be.<br>
+		  <ul>
+  		<li>2 bedroom, 2 bath with living room and fully stocked kitchen</li>
+  		<li>Cable TV and High-Speed Internet</li>
+  		<li>Rates starting at $300/night</li>
+		</ul> 
+		</p>
       <a name="more">
         <p>Reserve</p>
       </a>
     </div>
 
     <div id="resCard">
-      <img src="./media/landing/2.jpg" id="resimg">
+      <img src="./media/landing/1.jpg" id="resimg">
       <h4>Watermelon Cottage</h4>
-      <p>Lorem ipsum dolor sit amet</p>
+      <p>This is our midrange cottage. Featuring wonderful views of a field and some woods, the Watermelon Cottage is the place to be.<br>
+		  <ul>
+  		<li>2 bedroom, 2 bath with living room and fully stocked kitchen</li>
+  		<li>Cable TV and High-Speed Internet</li>
+  		<li>Rates starting at $150/night</li>
+		</ul></p>
       <a name="more">
         <p>Reserve</p>
       </a>
@@ -122,16 +137,26 @@
     <div id="resCard">
       <img src="./media/landing/5.jpg" id="resimg">
       <h4>Corn Cottage</h4>
-      <p>Lorem ipsum dolor sit amet</p>
+      <p>This is our Corn Cottage. Featuring wonderful views of our a corn field, the Corn Cottage is the place to be.<br>
+		  <ul>
+  		<li>2 bedroom, 2 bath with living room and fully stocked kitchen</li>
+  		<li>Cable TV and High-Speed Internet</li>
+  		<li>Rates starting at $150/night</li>
+		</ul></p>
       <a name="more">
         <p>Reserve</p>
       </a>
     </div>
 
     <div id="resCard">
-      <img src="./media/landing/1.jpg" id="resimg">
+      <img src="./media/landing/4.jpg" id="resimg">
       <h4>Sunflower Cottage</h4>
-      <p>Lorem ipsum dolor sit amet</p>
+      <p>This is on of our budget cottages. Featuring wonderful views of a sunflower field, the Sunflower Cottage is the place to be.<br>
+		  <ul>
+  		<li>2 bedroom, 1 bath with a outdoor patio and a fully stocked kitchen</li>
+  		<li>landline phone</li>
+  		<li>Rates starting at $100/night</li>
+		</ul> </p>
       <a name="more">
         <p>Reserve</p>
       </a>
@@ -140,7 +165,12 @@
     <div id="resCard">
       <img src="./media/landing/3.jpg" id="resimg">
       <h4>Wheat Cottage</h4>
-      <p>Lorem ipsum dolor sit amet</p>
+      <p>This is on of our budget cottages. Featuring wonderful views of a wheat field, the Sunflower Cottage is the place to be.<br>
+		  <ul>
+  		<li>2 bedroom, 1 bath with a outdoor patio and a fully stocked kitchen</li>
+  		<li>landline phone</li>
+  		<li>Rates starting at $100/night</li>
+		</ul> </p>
       <a name="more">
         <p>Reserve</p>
       </a>

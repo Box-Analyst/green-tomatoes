@@ -37,7 +37,7 @@
     <nav>
       <ul id="horizontal-list">
         <li><a href="index.php" class="active">Home</a></li>
-        <li><a href="about.html">About</a></li>
+        <li><a href="about.php">About</a></li>
         <?php  if (isset($_SESSION['username'])) : ?>
         <li><a href="index.php?logout='1'">Logout</a></li>
 		<?php endif ?>

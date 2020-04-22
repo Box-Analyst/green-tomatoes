@@ -35,6 +35,7 @@
   </header>
   <main>
     <form method="post" action="reserveroom.php">
+	<?php include('errors.php'); ?>
       <div class="container">
         <br><br><br>
         <h1>Reserve a Room</h1>

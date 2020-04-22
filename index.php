@@ -109,7 +109,7 @@
       <img src="./media/landing/4.jpg" id="resimg">
       <h4>Tomato Cottage</h4>
       <p>Lorem ipsum dolor sit amet</p>
-      <a name="more">
+      <a href="reserveroom.php">
         <p>Reserve</p>
       </a>
     </div>
@@ -118,7 +118,7 @@
       <img src="./media/landing/2.jpg" id="resimg">
       <h4>Watermelon Cottage</h4>
       <p>Lorem ipsum dolor sit amet</p>
-      <a name="more">
+      <a href="reserveroom.php">
         <p>Reserve</p>
       </a>
     </div>
@@ -127,7 +127,7 @@
       <img src="./media/landing/5.jpg" id="resimg">
       <h4>Corn Cottage</h4>
       <p>Lorem ipsum dolor sit amet</p>
-      <a name="more">
+      <a href="reserveroom.php">
         <p>Reserve</p>
       </a>
     </div>
@@ -136,7 +136,7 @@
       <img src="./media/landing/1.jpg" id="resimg">
       <h4>Sunflower Cottage</h4>
       <p>Lorem ipsum dolor sit amet</p>
-      <a name="more">
+      <a href="reserveroom.php">
         <p>Reserve</p>
       </a>
     </div>
@@ -145,7 +145,7 @@
       <img src="./media/landing/3.jpg" id="resimg">
       <h4>Wheat Cottage</h4>
       <p>Lorem ipsum dolor sit amet</p>
-      <a name="more">
+      <a href="reserveroom.php">
         <p>Reserve</p>
       </a>
     </div>

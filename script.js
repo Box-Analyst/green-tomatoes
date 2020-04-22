@@ -26,3 +26,7 @@ function mobiMenuClose() {
     document.getElementById("mobiMenu").style.display = "none";
   }, 990);
 }
+
+function reserveCottage(int) {
+  // whatever we need to do to pass on this info
+}

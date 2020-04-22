@@ -106,8 +106,17 @@ if (isset($_POST['login_user'])) {
   	$query = "SELECT * FROM LOGIN WHERE emailAddress='$email' AND password='$password'";
   	$results = mysqli_query($db, $query);
   	if (mysqli_num_rows($results) == 1) {
+	  $query1 = "SELECT name, phoneNumber, address, city, state, zip FROM CUSTOMER WHERE emailAddress='$email'";
+	  $results1 = mysqli_query($db, $query1);
+	  $row = mysqli_fetch_array($results1);
   	  $_SESSION['username'] = $email;
   	  $_SESSION['success'] = "You are now logged in";
+	  $_SESSION['name'] = $row[0];
+	  $_SESSION['phone'] = $row[1];
+	  $_SESSION['address'] = $row[2];
+	  $_SESSION['city'] = $row[3];
+	  $_SESSION['state'] = $row[4];
+	  $_SESSION['zip'] = $row[5];
   	  header('location: index.php');
   	}else {
   		array_push($errors, "Wrong email/password combination");

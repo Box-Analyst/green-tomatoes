@@ -39,26 +39,19 @@
       <div class="container">
         <br><br><br>
         <h1>Reserve a Room</h1>
-        <p>Please fill this form to reserve a room.</p>
+        <p>Name: <?php echo $_SESSION['name']; ?></p>
+		<p>Email: <?php echo $_SESSION['username']; ?></p>
+		<p>Phone: <?php echo $_SESSION['phone']; ?></p>
+		<p>Address: <?php echo $_SESSION['address']; ?></p>
+		<p>City: <?php echo $_SESSION['city']; ?></p>
+		<p>State: <?php echo $_SESSION['state']; ?></p>
+		<p>Zip: <?php echo $_SESSION['zip']; ?></p>
+		<p>Cottage: <?php echo $_SESSION['cottageName']; ?></p>
         <hr>
-		<label for="Name"><b>Name</b></label>
-        <input type="text" placeholder="Name" name="Name" required value="<?php echo $Name; ?>">
-        <label for="email"><b>Email</b></label>
-        <input type="text" placeholder="Email" name="email" required value="<?php echo $email; ?>">
-		  <label for="Phone"><b>Phone</b></label>
-        <input type="text" placeholder="Phone Number" name="phone" required value="<?php echo $phone; ?>">
 		    <label for="checkin"><b>Check-in</b></label>
         <input type="text" placeholder="MM/DD/YY" name="checkin" required>
 		    <label for="checkout"><b>Check-out</b></label>
         <input type="text" placeholder="MM/DD/YY" name="checkout" required>
-		      <label for="cottage"><b>Cottage</b></label>
-        <select id="cottage">
-		<option value = "Tomato">Tomato</option>
-		<option value = "Watermelon">Watermelon</option>
-		<option value = "Corn">Corn</option>
-		<option value = "Sunflower">Sunflower</option>
-		<option value = "Wheat">Wheat</option>
-	</select>
 		   
         
         <hr>

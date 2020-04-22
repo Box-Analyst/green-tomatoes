@@ -48,7 +48,8 @@
         <input type="text" placeholder="State" name="state" maxlength="2" required value="<?php echo $state; ?>">
 		   <label for="zip"><b>Zip</b></label>
         <input type="text" placeholder="Zip" name="zip" maxlength="5" required value="<?php echo $zip; ?>">
-        
+
+
         <hr>
 
 

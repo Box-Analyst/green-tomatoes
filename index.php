@@ -113,6 +113,7 @@
 	  <?php endif ?>
 	  <?php  if (isset($_SESSION['username'])) : ?>
       <a name="more" href="reserveroom.php">
+	    <?php $_SESSION['cottageID'] = '1'; ?>
 	    <p>Reserve</p>
       </a>
 	  <?php endif ?>
@@ -129,6 +130,7 @@
 	  <?php endif ?>
 	  <?php  if (isset($_SESSION['username'])) : ?>
       <a name="more" href="reserveroom.php">
+		<?php $_SESSION['cottageID'] = '2'; ?>
 	    <p>Reserve</p>
       </a>
 	  <?php endif ?>
@@ -145,6 +147,7 @@
 	  <?php endif ?>
 	  <?php  if (isset($_SESSION['username'])) : ?>
       <a name="more" href="reserveroom.php">
+	    <?php $_SESSION['cottageID'] = '3'; ?>
 	    <p>Reserve</p>
       </a>
 	  <?php endif ?>
@@ -161,6 +164,7 @@
 	  <?php endif ?>
 	  <?php  if (isset($_SESSION['username'])) : ?>
       <a name="more" href="reserveroom.php">
+	    <?php $_SESSION['cottageID'] = '4'; ?>
 	    <p>Reserve</p>
       </a>
 	  <?php endif ?>
@@ -177,6 +181,7 @@
 	  <?php endif ?>
 	  <?php  if (isset($_SESSION['username'])) : ?>
       <a name="more" href="reserveroom.php">
+	    <?php $_SESSION['cottageID'] = '5'; ?>
 	    <p>Reserve</p>
       </a>
 	  <?php endif ?>

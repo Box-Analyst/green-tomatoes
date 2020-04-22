@@ -103,9 +103,15 @@
     <h3 id="reshead">Reservations</h3>
 
     <div id="resCard">
-      <img src="./media/landing/4.jpg" id="resimg">
+      <img src="./media/landing/2.jpg" id="resimg">
       <h4>Tomato Cottage</h4>
-      <p>Lorem ipsum dolor sit amet</p>
+      <p>This is our primier cottage. Featuring wonderful views of our fields and pond, the Tomato Cottage is the place to be.<br>
+		  <ul>
+  		<li>2 bedroom, 2 bath with living room and fully stocked kitchen</li>
+  		<li>Cable TV and High-Speed Internet</li>
+  		<li>Rates starting at $300/night</li>
+		</ul>
+		</p>
 	  <?php  if (!isset($_SESSION['username'])) : ?>
       <a name="more" href="login.php" style="color: red;">
 	    <p>You must Login to reserve a room</p>
@@ -120,9 +126,14 @@
     </div>
 
     <div id="resCard">
-      <img src="./media/landing/2.jpg" id="resimg">
+      <img src="./media/landing/1.jpg" id="resimg">
       <h4>Watermelon Cottage</h4>
-      <p>Lorem ipsum dolor sit amet</p>
+      <p>This is our midrange cottage. Featuring wonderful views of a field and some woods, the Watermelon Cottage is the place to be.<br>
+		  <ul>
+  		<li>2 bedroom, 2 bath with living room and fully stocked kitchen</li>
+  		<li>Cable TV and High-Speed Internet</li>
+  		<li>Rates starting at $150/night</li>
+		</ul></p>
       <?php  if (!isset($_SESSION['username'])) : ?>
       <a name="more" href="login.php" style="color: red;">
 	    <p>You must Login to reserve a room</p>
@@ -139,7 +150,12 @@
     <div id="resCard">
       <img src="./media/landing/5.jpg" id="resimg">
       <h4>Corn Cottage</h4>
-      <p>Lorem ipsum dolor sit amet</p>
+      <p>This is our Corn Cottage. Featuring wonderful views of our a corn field, the Corn Cottage is the place to be.<br>
+		  <ul>
+  		<li>2 bedroom, 2 bath with living room and fully stocked kitchen</li>
+  		<li>Cable TV and High-Speed Internet</li>
+  		<li>Rates starting at $150/night</li>
+		</ul></p>
       <?php  if (!isset($_SESSION['username'])) : ?>
       <a name="more" href="login.php" style="color: red;">
 	    <p>You must Login to reserve a room</p>
@@ -154,9 +170,14 @@
     </div>
 
     <div id="resCard">
-      <img src="./media/landing/1.jpg" id="resimg">
+      <img src="./media/landing/4.jpg" id="resimg">
       <h4>Sunflower Cottage</h4>
-      <p>Lorem ipsum dolor sit amet</p>
+      <p>This is on of our budget cottages. Featuring wonderful views of a sunflower field, the Sunflower Cottage is the place to be.<br>
+		  <ul>
+  		<li>2 bedroom, 1 bath with a outdoor patio and a fully stocked kitchen</li>
+  		<li>landline phone</li>
+  		<li>Rates starting at $100/night</li>
+		</ul> </p>
       <?php  if (!isset($_SESSION['username'])) : ?>
       <a name="more" href="login.php" style="color: red;">
 	    <p>You must Login to reserve a room</p>
@@ -173,7 +194,12 @@
     <div id="resCard">
       <img src="./media/landing/3.jpg" id="resimg">
       <h4>Wheat Cottage</h4>
-      <p>Lorem ipsum dolor sit amet</p>
+      <p>This is on of our budget cottages. Featuring wonderful views of a wheat field, the Sunflower Cottage is the place to be.<br>
+		  <ul>
+  		<li>2 bedroom, 1 bath with a outdoor patio and a fully stocked kitchen</li>
+  		<li>landline phone</li>
+  		<li>Rates starting at $100/night</li>
+		</ul> </p>
       <?php  if (!isset($_SESSION['username'])) : ?>
       <a name="more" href="login.php" style="color: red;">
 	    <p>You must Login to reserve a room</p>

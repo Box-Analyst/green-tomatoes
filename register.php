@@ -67,7 +67,9 @@
       </div>
     </form>
   </main>
-
+<footer>
+    <p>© <?php echo date("Y"); ?> Copyright Green Tomatoes Farm and Resort.</p>
+  </footer>
 </body>
 
 </html>

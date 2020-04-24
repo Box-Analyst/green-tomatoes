@@ -9,6 +9,11 @@
   	unset($_SESSION['username']);
   	header("location: login.php");
   }
+  if (isset($_GET['cottageName'])){
+	  $cottageName = $_GET['cottageName'];
+	  $_SESSION['cottageName'] = $cottageName;
+	  header("location: reserveroom.php");
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -120,8 +125,8 @@
       </a>
       <?php endif ?>
       <?php  if (isset($_SESSION['username'])) : ?>
-      <a name="more"  >
-	    <p onclick="reserveCottage(1)">Reserve</p>
+      <a name="more"  href="index.php?cottageName=Tomato Cottage">
+	    <p>Reserve</p>
       </a>
       <?php endif ?>
     </div>
@@ -143,8 +148,8 @@
       </a>
       <?php endif ?>
       <?php  if (isset($_SESSION['username'])) : ?>
-      <a name="more"  >
-	    <p onclick="reserveCottage(2)">Reserve</p>
+      <a name="more" href="index.php?cottageName=Watermelon Cottage">
+	    <p>Reserve</p>
       </a>
       <?php endif ?>
     </div>
@@ -166,8 +171,8 @@
       </a>
       <?php endif ?>
       <?php  if (isset($_SESSION['username'])) : ?>
-      <a name="more"  >
-	    <p onclick="reserveCottage(3)">Reserve</p>
+      <a name="more" href="index.php?cottageName=Corn Cottage">
+	    <p>Reserve</p>
       </a>
       <?php endif ?>
     </div>
@@ -189,8 +194,8 @@
       </a>
       <?php endif ?>
       <?php  if (isset($_SESSION['username'])) : ?>
-      <a name="more"  >
-	    <p onclick="reserveCottage(4)">Reserve</p>
+      <a name="more" href="index.php?cottageName=Sunflower Cottage">
+	    <p>Reserve</p>
       </a>
       <?php endif ?>
     </div>
@@ -212,8 +217,8 @@
       </a>
       <?php endif ?>
       <?php  if (isset($_SESSION['username'])) : ?>
-      <a name="more"  >
-	    <p onclick="reserveCottage(5)">Reserve</p>
+      <a name="more" href="index.php?cottageName=Wheat Cottage">
+	    <p>Reserve</p>
       </a>
       <?php endif ?>
     </div>

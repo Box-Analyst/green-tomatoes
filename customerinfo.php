@@ -62,6 +62,14 @@
     </form>
   </main>
 
+  <footer>
+    <br><br>
+    <div id="footer-span">
+      <div><i class="far fa-copyright" id="copy"></i> <?php echo date("Y"); ?> Copyright Green Tomatoes Farm and Resort.</div>
+    </div>
+    <br>
+  </footer>
+
 </body>
 
 </html>

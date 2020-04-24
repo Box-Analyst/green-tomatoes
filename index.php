@@ -115,7 +115,7 @@
       </p>
       <?php  if (!isset($_SESSION['username'])) : ?>
       <a name="more" href="login.php" style="color: red;">
-        <p onclick="reserveCottage(1)">You must Login to reserve a room</p>
+        <p>You must Login to reserve a room</p>
       </a>
       <?php endif ?>
       <?php  if (isset($_SESSION['username'])) : ?>
@@ -140,7 +140,7 @@
       </p>
       <?php  if (!isset($_SESSION['username'])) : ?>
       <a name="more" href="login.php" style="color: red;">
-        <p onclick="reserveCottage(2)">You must Login to reserve a room</p>
+        <p>You must Login to reserve a room</p>
       </a>
       <?php endif ?>
       <?php  if (isset($_SESSION['username'])) : ?>
@@ -165,7 +165,7 @@
       </p>
       <?php  if (!isset($_SESSION['username'])) : ?>
       <a name="more" href="login.php" style="color: red;">
-        <p onclick="reserveCottage(3)">You must Login to reserve a room</p>
+        <p>You must Login to reserve a room</p>
       </a>
       <?php endif ?>
       <?php  if (isset($_SESSION['username'])) : ?>
@@ -190,7 +190,7 @@
       </p>
       <?php  if (!isset($_SESSION['username'])) : ?>
       <a name="more" href="login.php" style="color: red;">
-        <p onclick="reserveCottage(4)">You must Login to reserve a room</p>
+        <p>You must Login to reserve a room</p>
       </a>
       <?php endif ?>
       <?php  if (isset($_SESSION['username'])) : ?>
@@ -215,7 +215,7 @@
       </p>
       <?php  if (!isset($_SESSION['username'])) : ?>
       <a name="more" href="login.php" style="color: red;">
-        <p onclick="reserveCottage(5)">You must Login to reserve a room</p>
+        <p>You must Login to reserve a room</p>
       </a>
       <?php endif ?>
       <?php  if (isset($_SESSION['username'])) : ?>

@@ -76,8 +76,8 @@ if (isset($_POST['customerinfo'])) {
   // Finally, register user information if there are no errors in the form
   if (count($errors) == 0) {
 
-  	$query = "INSERT INTO CUSTOMER (name, emailAddress, phoneNumber, address, city, state, zip) 
-  			  VALUES('$fName', '$email', '$phone', '$address', '$city', '$state', '$zip')";
+  	$query = "INSERT INTO CUSTOMER (name, emailAddress, phoneNumber, address, city, state, zip, checkedIn) 
+  			  VALUES('$fName', '$email', '$phone', '$address', '$city', '$state', '$zip', '0')";
   	mysqli_query($db, $query);
 	$_SESSION['name'] = $fName;
 	$_SESSION['username'] = $email;
@@ -86,7 +86,30 @@ if (isset($_POST['customerinfo'])) {
 	$_SESSION['city'] = $city;
 	$_SESSION['state'] = $state;
 	$_SESSION['zip'] = $zip;
+	$_SESSION['checkedIn'] = '0';
   	header('location: index.php');
+  }
+}
+
+if (isset($_POST['checkreservation'])){
+	$checkin = mysqli_real_escape_string($db, $_POST['checkin']);
+    $checkout = mysqli_real_escape_string($db, $_POST['checkout']);
+	$cottageID = $_SESSION['cottageID'];
+	
+	if (count($errors) == 0) {
+
+	  $query = "SELECT lastStayDate FROM COTTAGE WHERE cottageID = '$cottageID'";
+	  $results = mysqli_query($db, $query);
+	  
+	  $date1 = new DateTime($checkin);
+	  $date2 = new DateTime($results);
+	  
+	  if($date1 > $date2){
+		  header('location: transaction.php');
+	  } else {
+		  array_push($errors, "Date is not available. Try a later date.");
+	  }
+	  
   }
 }
 
@@ -106,7 +129,7 @@ if (isset($_POST['login_user'])) {
   	$query = "SELECT * FROM LOGIN WHERE emailAddress='$email' AND password='$password'";
   	$results = mysqli_query($db, $query);
   	if (mysqli_num_rows($results) == 1) {
-	  $query1 = "SELECT name, phoneNumber, address, city, state, zip FROM CUSTOMER WHERE emailAddress='$email'";
+	  $query1 = "SELECT name, phoneNumber, address, city, state, zip, checkedIn FROM CUSTOMER WHERE emailAddress='$email'";
 	  $results1 = mysqli_query($db, $query1);
 	  $row = mysqli_fetch_array($results1);
   	  $_SESSION['username'] = $email;
@@ -117,6 +140,7 @@ if (isset($_POST['login_user'])) {
 	  $_SESSION['city'] = $row[3];
 	  $_SESSION['state'] = $row[4];
 	  $_SESSION['zip'] = $row[5];
+	  $_SESSION['checkedIn'] = $row[6];
   	  header('location: index.php');
   	}else {
   		array_push($errors, "Wrong email/password combination");

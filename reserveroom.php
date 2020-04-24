@@ -76,11 +76,8 @@
         <input type="text" placeholder="MM/DD/YY" name="checkin" required>
 		    <label for="checkout"><b>Check-out</b></label>
         <input type="text" placeholder="MM/DD/YY" name="checkout" required>
-
-        <hr>
-
-
-        <button type="submit" class="registerbtn saveinfobtn">Save Info</button>
+		<hr>
+		<button type="submit" class="registerbtn saveinfobtn" name="checkreservation>Check Availability</button>
       </div>
 
 

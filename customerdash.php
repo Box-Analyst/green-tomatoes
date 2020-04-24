@@ -73,13 +73,18 @@
     <!-- Make 'Check Out' if already checked in -->
     <button type="button">
       <h2>
-        <div>Check In</div>
+      <?php  if (!($_SESSION['checkedIn'])) : ?>
+        <div href="">Check In</div>
+      <?php endif ?>
+      <?php  if (($_SESSION['checkedIn'])) : ?>
+        <div href="">Check Out</div>
+      <?php endif ?>
       </h2>
     </button>
 
     <button type="button">
       <h2>
-        <div>Contact Front Desk</div>
+        <div href="">Contact Front Desk</div>
       </h2>
     </button>
 

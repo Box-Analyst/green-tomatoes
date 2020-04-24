@@ -27,7 +27,7 @@ function mobiMenuClose() {
   }, 990);
 }
 
-function reserveCottage(int cottageid) {
+function reserveCottage(cottageid) {
   var cottageID = cottageid;
   var cottageName = 'Tomato Cottage';
   if(cottageID == 1){
@@ -45,11 +45,18 @@ function reserveCottage(int cottageid) {
   $.ajax({
 	  url: url,
 	  type:'POST',
-	  data: {'cottageName': cottageName}
+	  data: {'cottageName': cottageName},
+	  success: function (data) {
+        console.log(date);
+      }
   });
   $.ajax({
 	  url: url,
 	  type:'POST',
-	  data: {'cottageID': cottageID}
+	  data: {'cottageID': cottageID},
+	  success: function (data) {
+        console.log(date);
+      }
   });
+  window.location.href = "reserveroom.php";
 }

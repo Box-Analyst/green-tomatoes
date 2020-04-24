@@ -27,6 +27,36 @@ function mobiMenuClose() {
   }, 990);
 }
 
-function reserveCottage(int) {
-  // whatever we need to do to pass on this info
+function reserveCottage(cottageid) {
+  var cottageID = cottageid;
+  var cottageName = 'Tomato Cottage';
+  if(cottageID == 1){
+	  cottageName = 'Tomato Cottage';
+  } else if(cottageID == 2){
+	  cottageName = 'Watermelon Cottage';
+  } else if(cottageID == 3){
+	  cottageName = 'Corn Cottage';
+  } else if(cottageID == 4){
+	  cottageName = 'Sunflower Cottage';
+  } else if(cottageID == 5){
+	  cottageName = 'Wheat Cottage';
+  }
+  var url = "reserveroom.php";
+  $.ajax({
+	  url: url,
+	  type:'POST',
+	  data: {'cottageName': cottageName},
+	  success: function (data) {
+        console.log(date);
+      }
+  });
+  $.ajax({
+	  url: url,
+	  type:'POST',
+	  data: {'cottageID': cottageID},
+	  success: function (data) {
+        console.log(date);
+      }
+  });
+  window.location.href = "reserveroom.php";
 }

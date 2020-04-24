@@ -120,9 +120,7 @@
       <?php endif ?>
       <?php  if (isset($_SESSION['username'])) : ?>
       <a name="more" href="reserveroom.php">
-        <?php $_SESSION['cottageID'] = '1'; ?>
-        <?php $_SESSION['cottageName'] = 'Tomato Cottage'; ?>
-        <p onclick="reserveCottage(1)">Reserve</p>
+	    <p onclick="reserveCottage(1)">Reserve</p>
       </a>
       <?php endif ?>
     </div>
@@ -145,9 +143,7 @@
       <?php endif ?>
       <?php  if (isset($_SESSION['username'])) : ?>
       <a name="more" href="reserveroom.php">
-        <?php $_SESSION['cottageID'] = '2'; ?>
-        <?php $_SESSION['cottageName'] = 'Watermelon Cottage'; ?>
-        <p onclick="reserveCottage(2)">Reserve</p>
+	    <p onclick="reserveCottage(2)">Reserve</p>
       </a>
       <?php endif ?>
     </div>
@@ -170,9 +166,7 @@
       <?php endif ?>
       <?php  if (isset($_SESSION['username'])) : ?>
       <a name="more" href="reserveroom.php">
-        <?php $_SESSION['cottageID'] = '3'; ?>
-        <?php $_SESSION['cottageName'] = 'Corn Cottage'; ?>
-        <p onclick="reserveCottage(3)">Reserve</p>
+	    <p onclick="reserveCottage(3)">Reserve</p>
       </a>
       <?php endif ?>
     </div>
@@ -195,9 +189,7 @@
       <?php endif ?>
       <?php  if (isset($_SESSION['username'])) : ?>
       <a name="more" href="reserveroom.php">
-        <?php $_SESSION['cottageID'] = '4'; ?>
-        <?php $_SESSION['cottageName'] = 'Sunflower Cottage'; ?>
-        <p onclick="reserveCottage(4)">Reserve</p>
+	    <p onclick="reserveCottage(4)">Reserve</p>
       </a>
       <?php endif ?>
     </div>
@@ -220,9 +212,7 @@
       <?php endif ?>
       <?php  if (isset($_SESSION['username'])) : ?>
       <a name="more" href="reserveroom.php">
-        <?php $_SESSION['cottageID'] = '5'; ?>
-        <?php $_SESSION['cottageName'] = 'Wheat Cottage'; ?>
-        <p onclick="reserveCottage(5)">Reserve</p>
+	    <p onclick="reserveCottage(5)">Reserve</p>
       </a>
       <?php endif ?>
     </div>

@@ -61,7 +61,7 @@
 	  <h2> About Us</h2>
 	  <p> We are the Green Tomatoes Farm and Resort. Come experenience country living with us! We are open 365 days a year.</p>
 	  <h3>Our History</h3>
-	  <p> Farmer Joe Smith grew up on the Green Tomatoes Farm as a young child. After his father passed, Joe inherited the 1000 acre farm that also contained five uninhabited cottages. After talking to people nearby, Joe decedied to make the farm into a resort. Thus Greaan Tomatoes Farm and Resort was born in 2005.</p>
+	  <p> Farmer Joe Smith grew up on the Green Tomatoes Farm as a young child. After his father passed, Joe inherited the 1000 acre farm that also contained five uninhabited cottages. After talking to people nearby, Joe decedied to make the farm into a resort. Thus Green Tomatoes Farm and Resort was born in 2005.</p>
 
 	  <h3>Amenities</h3>
 	  <ul>
@@ -87,7 +87,7 @@
 	Phone: (870) 555-1234<br>
 	Email: <a href="mailto:joe@greentomatoes.com">joe@greentomatoes.com</a>
 	</p>
-    <h3>My Google Maps Demo</h3>
+    <h3>Locate Us</h3>
     <!--The div element for the map -->
     <div id="map"></div>
     <script>

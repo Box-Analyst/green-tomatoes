@@ -75,11 +75,11 @@
 		<p>Check In Date: <?php echo $_SESSION['checkin']; ?></p>
 		<p>Check Out Date: <?php echo $_SESSION['checkout']; ?></p>
         <hr>
-		    <label for="checkin"><b>Card Number</b></label>
+		    <label for="cardNumber"><b>Card Number</b></label>
         <input type="text"name="cardNumber" required>
-		    <label for="checkout"><b>Expiration Date</b></label>
+		    <label for="expDate"><b>Expiration Date</b></label>
         <input type="text"name="expDate" required>
-		   <label for="checkin"><b>SVC Number</b></label>
+		   <label for="svcNumber"><b>SVC Number</b></label>
         <input type="text"name="svcNumber" required>
 		<hr>
 		<button type="submit" class="makepaymentbtn" name="makepayment">Confirm Transaction</button>

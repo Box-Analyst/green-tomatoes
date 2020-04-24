@@ -45,6 +45,8 @@
     </div>
   </header>
   <main>
+	<?php $_SESSION['cottageName'] = $_POST['cottageName']; ?>
+	<?php $_SESSION['cottageID'] = $_POST['cottageID']; ?>
     <form method="post" action="reserveroom.php">
 	<?php include('errors.php'); ?>
       <div class="container">
@@ -63,14 +65,6 @@
         <input type="text" placeholder="MM/DD/YY" name="checkin" required>
 		    <label for="checkout"><b>Check-out</b></label>
         <input type="text" placeholder="MM/DD/YY" name="checkout" required>
-		      <label for="cottage"><b>Cottage</b></label>
-        <select id="cottage">
-		<option value = "Tomato">Tomato</option>
-		<option value = "Watermelon">Watermelon</option>
-		<option value = "Corn">Corn</option>
-		<option value = "Sunflower">Sunflower</option>
-		<option value = "Wheat">Wheat</option>
-  </select>
 
         <hr>
 

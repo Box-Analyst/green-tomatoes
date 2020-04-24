@@ -58,11 +58,11 @@
     </div>
   </header>
   <main>
-    <form method="post" action="reserveroom.php">
+    <form method="post" action="transaction.php">
 	<?php include('errors.php'); ?>
       <div class="container">
         <br><br><br>
-        <h1>Reserve a Room</h1>
+        <h1>Payment Info</h1>
         <p>Name: <?php echo $_SESSION['name']; ?></p>
 		<p>Email: <?php echo $_SESSION['username']; ?></p>
 		<p>Phone: <?php echo $_SESSION['phone']; ?></p>
@@ -72,13 +72,17 @@
 		<p>Zip: <?php echo $_SESSION['zip']; ?></p>
 		<p>Cottage: <?php echo $_SESSION['cottageName']; ?></p>
 		<p>CottageID: <?php echo $_SESSION['cottageID']; ?></p>
+		<p>Check In Date: <?php echo $_SESSION['checkin']; ?></p>
+		<p>Check Out Date: <?php echo $_SESSION['checkout']; ?></p>
         <hr>
-		    <label for="checkin"><b>Check-in</b></label>
-        <input type="text" placeholder="YYYY-MM-DD" name="checkin" required>
-		    <label for="checkout"><b>Check-out</b></label>
-        <input type="text" placeholder="YYYY-MM-DD" name="checkout" required>
+		    <label for="cardNumber"><b>Card Number</b></label>
+        <input type="text"name="cardNumber" required>
+		    <label for="expDate"><b>Expiration Date</b></label>
+        <input type="text"name="expDate" required>
+		   <label for="svcNumber"><b>SVC Number</b></label>
+        <input type="text"name="svcNumber" required>
 		<hr>
-		<button type="submit" class="registerbtn saveinfobtn" name="checkreservation">Check Availability</button>
+		<button type="submit" class="makepaymentbtn" name="makepayment">Confirm Transaction</button>
       </div>
 
 

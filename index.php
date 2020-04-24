@@ -97,14 +97,7 @@
       <a name="more"><br></a>
     </div>
     <h3>Experience Farming Life in Luxury!</h3>
-    <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in bibendum massa, faucibus interdum dolor. Duis
-      nisi
-      mi, faucibus non porttitor id, ullamcorper ut mi. Cras accumsan commodo lectus in egestas. Lorem ipsum dolor sit
-      amet, consectetur adipiscing elit. Integer malesuada augue velit, in rhoncus eros commodo ac. Vivamus sodales
-      viverra metus id venenatis. Vivamus a sodales dui. Donec id aliquet lacus. Praesent sit amet urna velit. Nam
-      pellentesque eget magna vitae tincidunt. Nullam efficitur nulla orci, ac tincidunt ex commodo in. Donec dignissim
-      efficitur ipsum vitae malesuada. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus
-      mus.</p>
+    <p> Stay at the Green Tomatoes Farm and Resort and experience the life of a farmer while also enjoying time away from the city! Our unique resort farming experience allows our customers to choose a crop they would like to grow with the assistance of the owner, Farmer Joe. Once your stay is over, all crops grown throughout the duration of the stay are yours to take back home! Our open fields and peaceful scenery will leave you feeling refreshed after a week, month, or however long you would like to stay! Simply scroll down, select your preferred cottage, and make a reservation for the most luxurious farming experience Arkansas has to offer.</p>
 
     <h3 id="reshead">Reservations</h3>
 

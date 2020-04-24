@@ -59,6 +59,7 @@
 
   <main>
 
+    <h1>Customer Dashboard</h1>
       <!-- logged in user information -->
       <?php  if (isset($_SESSION['username'])) : ?>
       <p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
@@ -67,22 +68,20 @@
       <p> <a href="login.php?msg='1'" style="color: red;">You must Login to use this page.</a> </p>
       <?php endif ?>
     </div>
-
-    <h1>Customer Dashboard</h1>
     <p>Use this page to check in/out and request services after you arrive!</p>
     <!-- Make 'Check Out' if already checked in -->
-    <button type="button">
+    <button type="button" class="signinbtn">
       <h2>
-      <?php  if (!($_SESSION['checkedIn'])) : ?>
+      <?php  if ($_SESSION['checkedIn'] != '0') : ?>
         <div href="">Check In</div>
       <?php endif ?>
-      <?php  if (($_SESSION['checkedIn'])) : ?>
+      <?php  if ($_SESSION['checkedIn'] == '1') : ?>
         <div href="">Check Out</div>
       <?php endif ?>
       </h2>
     </button>
 
-    <button type="button">
+    <button type="button" class="signinbtn">
       <h2>
         <div href="">Contact Front Desk</div>
       </h2>

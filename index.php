@@ -38,12 +38,12 @@
       <ul id="horizontal-list">
         <li><a href="index.php" class="active">Home</a></li>
         <li><a href="about.php">About</a></li>
-		<?php  if (isset($_SESSION['username'])) : ?>
+        <?php  if (isset($_SESSION['username'])) : ?>
         <li><a href="index.php?logout='1'">Logout</a></li>
-		<?php endif ?>
-		<?php  if (!isset($_SESSION['username'])) : ?>
+        <?php endif ?>
+        <?php  if (!isset($_SESSION['username'])) : ?>
         <li><a href="login.php">Login</a></li>
-		<?php endif ?>
+        <?php endif ?>
       </ul>
       <h1>
         <button type="button" id="menu" onclick="mobiMenuOpen()">
@@ -58,24 +58,24 @@
   </header>
 
   <main>
-	<div>
-  	<!-- notification message -->
-  	<?php if (isset($_SESSION['success'])) : ?>
-      <div class="error success" >
-      	<p>
+    <div>
+      <!-- notification message -->
+      <?php if (isset($_SESSION['success'])) : ?>
+      <div class="error success">
+        <p>
           <?php
           	echo $_SESSION['success'];
           	unset($_SESSION['success']);
           ?>
-      	</p>
+        </p>
       </div>
-  	<?php endif ?>
+      <?php endif ?>
 
-    <!-- logged in user information -->
-    <?php  if (isset($_SESSION['username'])) : ?>
-    	<p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
-    <?php endif ?>
-  </div>
+      <!-- logged in user information -->
+      <?php  if (isset($_SESSION['username'])) : ?>
+      <p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
+      <?php endif ?>
+    </div>
     <div id="slideshow-container">
       <img src="./media/landing/1.jpg" id="slides">
     </div>
@@ -105,123 +105,136 @@
     <div id="resCard">
       <img src="./media/landing/2.jpg" id="resimg">
       <h4>Tomato Cottage</h4>
-      <p>This is our primier cottage. Featuring wonderful views of our fields and pond, the Tomato Cottage is the place to be.<br>
-		  <ul>
-  		<li>2 bedroom, 2 bath with living room and fully stocked kitchen</li>
-  		<li>Cable TV and High-Speed Internet</li>
-  		<li>Rates starting at $300/night</li>
-		</ul>
-		</p>
-	  <?php  if (!isset($_SESSION['username'])) : ?>
+      <p>This is our primier cottage. Featuring wonderful views of our fields and pond, the Tomato Cottage is the place
+        to be.<br>
+        <ul>
+          <li>2 bedroom, 2 bath with living room and fully stocked kitchen</li>
+          <li>Cable TV and High-Speed Internet</li>
+          <li>Rates starting at $300/night</li>
+        </ul>
+      </p>
+      <?php  if (!isset($_SESSION['username'])) : ?>
       <a name="more" href="login.php" style="color: red;">
-	    <p onclick="reserveCottage(1)">You must Login to reserve a room</p>
+        <p onclick="reserveCottage(1)">You must Login to reserve a room</p>
       </a>
-	  <?php endif ?>
-	  <?php  if (isset($_SESSION['username'])) : ?>
+      <?php endif ?>
+      <?php  if (isset($_SESSION['username'])) : ?>
       <a name="more" href="reserveroom.php">
-	    <?php $_SESSION['cottageID'] = '1'; ?>
-		<?php $_SESSION['cottageName'] = 'Tomato Cottage'; ?>
-	    <p onclick="reserveCottage(1)">Reserve</p>
+        <?php $_SESSION['cottageID'] = '1'; ?>
+        <?php $_SESSION['cottageName'] = 'Tomato Cottage'; ?>
+        <p onclick="reserveCottage(1)">Reserve</p>
       </a>
-	  <?php endif ?>
+      <?php endif ?>
     </div>
 
     <div id="resCard">
       <img src="./media/landing/1.jpg" id="resimg">
       <h4>Watermelon Cottage</h4>
-      <p>This is our midrange cottage. Featuring wonderful views of a field and some woods, the Watermelon Cottage is the place to be.<br>
-		  <ul>
-  		<li>2 bedroom, 2 bath with living room and fully stocked kitchen</li>
-  		<li>Cable TV and High-Speed Internet</li>
-  		<li>Rates starting at $150/night</li>
-		</ul></p>
+      <p>This is our midrange cottage. Featuring wonderful views of a field and some woods, the Watermelon Cottage is
+        the place to be.<br>
+        <ul>
+          <li>2 bedroom, 2 bath with living room and fully stocked kitchen</li>
+          <li>Cable TV and High-Speed Internet</li>
+          <li>Rates starting at $150/night</li>
+        </ul>
+      </p>
       <?php  if (!isset($_SESSION['username'])) : ?>
       <a name="more" href="login.php" style="color: red;">
-	    <p onclick="reserveCottage(2)">You must Login to reserve a room</p>
+        <p onclick="reserveCottage(2)">You must Login to reserve a room</p>
       </a>
-	  <?php endif ?>
-	  <?php  if (isset($_SESSION['username'])) : ?>
+      <?php endif ?>
+      <?php  if (isset($_SESSION['username'])) : ?>
       <a name="more" href="reserveroom.php">
-		<?php $_SESSION['cottageID'] = '2'; ?>
-		<?php $_SESSION['cottageName'] = 'Watermelon Cottage'; ?>
-	    <p onclick="reserveCottage(2)">Reserve</p>
+        <?php $_SESSION['cottageID'] = '2'; ?>
+        <?php $_SESSION['cottageName'] = 'Watermelon Cottage'; ?>
+        <p onclick="reserveCottage(2)">Reserve</p>
       </a>
-	  <?php endif ?>
+      <?php endif ?>
     </div>
 
     <div id="resCard">
       <img src="./media/landing/5.jpg" id="resimg">
       <h4>Corn Cottage</h4>
-      <p>This is our Corn Cottage. Featuring wonderful views of our a corn field, the Corn Cottage is the place to be.<br>
-		  <ul>
-  		<li>2 bedroom, 2 bath with living room and fully stocked kitchen</li>
-  		<li>Cable TV and High-Speed Internet</li>
-  		<li>Rates starting at $150/night</li>
-		</ul></p>
+      <p>This is our Corn Cottage. Featuring wonderful views of our a corn field, the Corn Cottage is the place to
+        be.<br>
+        <ul>
+          <li>2 bedroom, 2 bath with living room and fully stocked kitchen</li>
+          <li>Cable TV and High-Speed Internet</li>
+          <li>Rates starting at $150/night</li>
+        </ul>
+      </p>
       <?php  if (!isset($_SESSION['username'])) : ?>
       <a name="more" href="login.php" style="color: red;">
-	    <p onclick="reserveCottage(3)">You must Login to reserve a room</p>
+        <p onclick="reserveCottage(3)">You must Login to reserve a room</p>
       </a>
-	  <?php endif ?>
-	  <?php  if (isset($_SESSION['username'])) : ?>
+      <?php endif ?>
+      <?php  if (isset($_SESSION['username'])) : ?>
       <a name="more" href="reserveroom.php">
-	    <?php $_SESSION['cottageID'] = '3'; ?>
-		<?php $_SESSION['cottageName'] = 'Corn Cottage'; ?>
-	    <p onclick="reserveCottage(3)">Reserve</p>
+        <?php $_SESSION['cottageID'] = '3'; ?>
+        <?php $_SESSION['cottageName'] = 'Corn Cottage'; ?>
+        <p onclick="reserveCottage(3)">Reserve</p>
       </a>
-	  <?php endif ?>
+      <?php endif ?>
     </div>
 
     <div id="resCard">
       <img src="./media/landing/4.jpg" id="resimg">
       <h4>Sunflower Cottage</h4>
-      <p>This is on of our budget cottages. Featuring wonderful views of a sunflower field, the Sunflower Cottage is the place to be.<br>
-		  <ul>
-  		<li>2 bedroom, 1 bath with a outdoor patio and a fully stocked kitchen</li>
-  		<li>landline phone</li>
-  		<li>Rates starting at $100/night</li>
-		</ul> </p>
+      <p>This is on of our budget cottages. Featuring wonderful views of a sunflower field, the Sunflower Cottage is the
+        place to be.<br>
+        <ul>
+          <li>2 bedroom, 1 bath with a outdoor patio and a fully stocked kitchen</li>
+          <li>landline phone</li>
+          <li>Rates starting at $100/night</li>
+        </ul>
+      </p>
       <?php  if (!isset($_SESSION['username'])) : ?>
       <a name="more" href="login.php" style="color: red;">
-	    <p onclick="reserveCottage(4)">You must Login to reserve a room</p>
+        <p onclick="reserveCottage(4)">You must Login to reserve a room</p>
       </a>
-	  <?php endif ?>
-	  <?php  if (isset($_SESSION['username'])) : ?>
+      <?php endif ?>
+      <?php  if (isset($_SESSION['username'])) : ?>
       <a name="more" href="reserveroom.php">
-	    <?php $_SESSION['cottageID'] = '4'; ?>
-		<?php $_SESSION['cottageName'] = 'Sunflower Cottage'; ?>
-	    <p onclick="reserveCottage(4)">Reserve</p>
+        <?php $_SESSION['cottageID'] = '4'; ?>
+        <?php $_SESSION['cottageName'] = 'Sunflower Cottage'; ?>
+        <p onclick="reserveCottage(4)">Reserve</p>
       </a>
-	  <?php endif ?>
+      <?php endif ?>
     </div>
 
     <div id="resCard">
       <img src="./media/landing/3.jpg" id="resimg">
       <h4>Wheat Cottage</h4>
-      <p>This is on of our budget cottages. Featuring wonderful views of a wheat field, the Sunflower Cottage is the place to be.<br>
-		  <ul>
-  		<li>2 bedroom, 1 bath with a outdoor patio and a fully stocked kitchen</li>
-  		<li>landline phone</li>
-  		<li>Rates starting at $100/night</li>
-		</ul> </p>
+      <p>This is on of our budget cottages. Featuring wonderful views of a wheat field, the Sunflower Cottage is the
+        place to be.<br>
+        <ul>
+          <li>2 bedroom, 1 bath with a outdoor patio and a fully stocked kitchen</li>
+          <li>landline phone</li>
+          <li>Rates starting at $100/night</li>
+        </ul>
+      </p>
       <?php  if (!isset($_SESSION['username'])) : ?>
       <a name="more" href="login.php" style="color: red;">
-	    <p onclick="reserveCottage(5)">You must Login to reserve a room</p>
+        <p onclick="reserveCottage(5)">You must Login to reserve a room</p>
       </a>
-	  <?php endif ?>
-	  <?php  if (isset($_SESSION['username'])) : ?>
+      <?php endif ?>
+      <?php  if (isset($_SESSION['username'])) : ?>
       <a name="more" href="reserveroom.php">
-	    <?php $_SESSION['cottageID'] = '5'; ?>
-		<?php $_SESSION['cottageName'] = 'Wheat Cottage'; ?>
-	    <p onclick="reserveCottage(5)">Reserve</p>
+        <?php $_SESSION['cottageID'] = '5'; ?>
+        <?php $_SESSION['cottageName'] = 'Wheat Cottage'; ?>
+        <p onclick="reserveCottage(5)">Reserve</p>
       </a>
-	  <?php endif ?>
+      <?php endif ?>
     </div>
 
   </main>
 
   <footer>
-    <p>© <?php echo date("Y"); ?> Copyright Green Tomatoes Farm and Resort.</p>
+    <br><br>
+    <div id="footer-span">
+      <div><i class="far fa-copyright" id="copy"></i> <?php echo date("Y"); ?> Copyright Green Tomatoes Farm and Resort.</div>
+    </div>
+    <br>
   </footer>
 </body>
 

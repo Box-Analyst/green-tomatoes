@@ -107,7 +107,7 @@ if (isset($_POST['checkreservation'])){
 	  
 	  if($date1 > $date2){
 		  $_SESSION['checkin'] = $date1;
-		  $SESSION['checkout'] = $checkout;
+		  $_SESSION['checkout'] = $checkout;
 		  header('location: transaction.php');
 	  } else {
 		  array_push($errors, "Date is not available. Try a later date.");

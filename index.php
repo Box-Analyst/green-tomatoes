@@ -119,7 +119,7 @@
       </a>
       <?php endif ?>
       <?php  if (isset($_SESSION['username'])) : ?>
-      <a name="more" href="reserveroom.php">
+      <a name="more" href="">
 	    <p onclick="reserveCottage(1)">Reserve</p>
       </a>
       <?php endif ?>
@@ -142,7 +142,7 @@
       </a>
       <?php endif ?>
       <?php  if (isset($_SESSION['username'])) : ?>
-      <a name="more" href="reserveroom.php">
+      <a name="more" href="">
 	    <p onclick="reserveCottage(2)">Reserve</p>
       </a>
       <?php endif ?>
@@ -165,7 +165,7 @@
       </a>
       <?php endif ?>
       <?php  if (isset($_SESSION['username'])) : ?>
-      <a name="more" href="reserveroom.php">
+      <a name="more" href="">
 	    <p onclick="reserveCottage(3)">Reserve</p>
       </a>
       <?php endif ?>
@@ -188,7 +188,7 @@
       </a>
       <?php endif ?>
       <?php  if (isset($_SESSION['username'])) : ?>
-      <a name="more" href="reserveroom.php">
+      <a name="more" href="">
 	    <p onclick="reserveCottage(4)">Reserve</p>
       </a>
       <?php endif ?>
@@ -211,7 +211,7 @@
       </a>
       <?php endif ?>
       <?php  if (isset($_SESSION['username'])) : ?>
-      <a name="more" href="reserveroom.php">
+      <a name="more" href="">
 	    <p onclick="reserveCottage(5)">Reserve</p>
       </a>
       <?php endif ?>

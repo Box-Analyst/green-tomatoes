@@ -12,6 +12,17 @@
   if (isset($_GET['cottageName'])){
 	  $cottageName = $_GET['cottageName'];
 	  $_SESSION['cottageName'] = $cottageName;
+	  if($cottageName == 'Tomato Cottage'){
+		  $_SESSION['cottageID'] = '1';
+	  } else if($cottageName == 'Watermelon Cottage'){
+		  $_SESSION['cottageID'] = '2';
+	  } else if($cottageName == 'Corn Cottage'){
+		  $_SESSION['cottageID'] = '3';
+	  } else if($cottageName == 'Sunflower Cottage'){
+		  $_SESSION['cottageID'] = '4';
+	  } else if($cottageName == 'Wheat Cottage'){
+		  $_SESSION['cottageID'] = '5';
+	  }
 	  header("location: reserveroom.php");
   }
 ?>

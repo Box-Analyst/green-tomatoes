@@ -100,11 +100,14 @@ if (isset($_POST['checkreservation'])){
 
 	  $query = "SELECT lastStayDate FROM COTTAGE WHERE cottageID = '$cottageID'";
 	  $results = mysqli_query($db, $query);
+	  $results1 = mysqli_fetch_array($results);
 	  
 	  $date1 = new DateTime($checkin);
-	  $date2 = new DateTime($results);
+	  $date2 = new DateTime($results1[0]);
 	  
 	  if($date1 > $date2){
+		  $_SESSION['checkin'] = $date1;
+		  $SESSION['checkout'] = $checkout;
 		  header('location: transaction.php');
 	  } else {
 		  array_push($errors, "Date is not available. Try a later date.");

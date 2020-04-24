@@ -31,7 +31,8 @@ function reserveCottage(cottageid) {
   var cottageID = cottageid;
   var cottageName = 'Tomato Cottage';
   if(cottageID == 1){
-	  cottageName = 'Tomato Cottage';
+    cottageName = 'Tomato Cottage';
+    console.log(cottageID);
   } else if(cottageID == 2){
 	  cottageName = 'Watermelon Cottage';
   } else if(cottageID == 3){
@@ -47,7 +48,7 @@ function reserveCottage(cottageid) {
 	  type:'POST',
 	  data: {'cottageName': cottageName},
 	  success: function (data) {
-        console.log(date);
+        console.log(data);
       }
   });
   $.ajax({
@@ -55,7 +56,7 @@ function reserveCottage(cottageid) {
 	  type:'POST',
 	  data: {'cottageID': cottageID},
 	  success: function (data) {
-        console.log(date);
+        console.log(data);
       }
   });
   window.location.href = "reserveroom.php";

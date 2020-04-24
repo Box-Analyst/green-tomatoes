@@ -23,6 +23,7 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
   <link href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" rel="stylesheet">
   <!--Inport Scripts-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="./script.js"></script>
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -119,7 +120,7 @@
       </a>
       <?php endif ?>
       <?php  if (isset($_SESSION['username'])) : ?>
-      <a name="more" href="">
+      <a name="more"  >
 	    <p onclick="reserveCottage(1)">Reserve</p>
       </a>
       <?php endif ?>
@@ -142,7 +143,7 @@
       </a>
       <?php endif ?>
       <?php  if (isset($_SESSION['username'])) : ?>
-      <a name="more" href="">
+      <a name="more"  >
 	    <p onclick="reserveCottage(2)">Reserve</p>
       </a>
       <?php endif ?>
@@ -165,7 +166,7 @@
       </a>
       <?php endif ?>
       <?php  if (isset($_SESSION['username'])) : ?>
-      <a name="more" href="">
+      <a name="more"  >
 	    <p onclick="reserveCottage(3)">Reserve</p>
       </a>
       <?php endif ?>
@@ -188,7 +189,7 @@
       </a>
       <?php endif ?>
       <?php  if (isset($_SESSION['username'])) : ?>
-      <a name="more" href="">
+      <a name="more"  >
 	    <p onclick="reserveCottage(4)">Reserve</p>
       </a>
       <?php endif ?>
@@ -211,7 +212,7 @@
       </a>
       <?php endif ?>
       <?php  if (isset($_SESSION['username'])) : ?>
-      <a name="more" href="">
+      <a name="more"  >
 	    <p onclick="reserveCottage(5)">Reserve</p>
       </a>
       <?php endif ?>

@@ -102,8 +102,8 @@ if (isset($_POST['checkreservation'])){
 	  $results = mysqli_query($db, $query);
 	  $results1 = mysqli_fetch_array($results);
 	  
-	  $date1 = new DateTime($checkin);
-	  $date2 = new DateTime($results1[0]);
+	  $date1 = date('Y-m-d', strtotime($checkin));
+	  $date2 = date('Y-m-d', strtotime($results1[0]));
 	  
 	  if($date1 > $date2){
 		  $_SESSION['checkin'] = $date1;

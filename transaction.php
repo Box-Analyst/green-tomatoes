@@ -82,7 +82,7 @@
 		   <label for="svcNumber"><b>SVC Number</b></label>
         <input type="text"name="svcNumber" required>
 		<hr>
-		<button type="submit" class="makepaymentbtn" name="makepayment">Confirm Transaction</button>
+		<button type="submit" class="registerbtn" name="makepayment">Confirm Transaction</button>
       </div>
 
 

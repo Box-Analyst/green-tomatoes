@@ -187,7 +187,18 @@ if (isset($_POST['login_user'])) {
 	  $_SESSION['state'] = $row[4];
 	  $_SESSION['zip'] = $row[5];
 	  $_SESSION['checkedIn'] = $row[6];
-	  $_SESSION['customerID'] = $row[7];
+    $_SESSION['customerID'] = $row[7];
+
+    $query2 = "SELECT transactionID FROM TRANSACTIONINFO WHERE customerID = $row[7] AND datePaid = (SELECT max(datePaid) FROM TRANSACTIONINFO WHERE customerID = $row[7])";
+    $results2 = mysqli_query($db, $query2);
+    $row2 = mysqli_fetch_array($results2);
+    $_SESSION['transaction'] = $row2[0];
+    $query3 = "SELECT transactionID, stayLogID FROM RESERVATION WHERE transactionID = $row2[0]";
+    $results3 = mysqli_query($db, $query3);
+    $row3 = mysqli_fetch_array($results3);
+    $_SESSION['checkin'] = $row3[0];
+		$_SESSION['checkout'] = $row3[1];
+
   	  header('location: index.php');
   	}else {
   		array_push($errors, "Wrong email/password combination");

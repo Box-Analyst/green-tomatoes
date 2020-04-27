@@ -196,6 +196,7 @@ if (isset($_POST['login_user'])) {
     $query3 = "SELECT transactionID, stayLogID FROM RESERVATION WHERE transactionID = $row2[0]";
     $results3 = mysqli_query($db, $query3);
     $row3 = mysqli_fetch_array($results3);
+    $_SESSION['transaction'] = $row2[0];
     $_SESSION['checkin'] = $row3[0];
 		$_SESSION['checkout'] = $row3[1];
 

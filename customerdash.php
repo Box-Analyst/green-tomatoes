@@ -9,6 +9,10 @@ if (isset($_GET['logout'])) {
   unset($_SESSION['username']);
   header("location: login.php");
 }
+if (isset($_GET['checkedIn'])) {
+  $_SESSION['checkedIn'] = $_GET['checkedIn'];
+  header("location: customerdash.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -63,6 +67,7 @@ if (isset($_GET['logout'])) {
     <!-- logged in user information -->
     <?php if (isset($_SESSION['username'])) : ?>
       <p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
+      <p><strong><?php echo $_SESSION['checkin']; ?></strong></p>
     <?php endif ?>
     <?php if (!isset($_SESSION['username'])) : ?>
       <p> <a href="login.php?msg='1'" style="color: red;">You must Login to use this page.</a> </p>
@@ -70,22 +75,29 @@ if (isset($_GET['logout'])) {
     </div>
     <p>Use this page to check in/out and request services after you arrive!</p>
     <!-- TODO: make button say "canel reservation" if before reservation date -->
+    <?php if (strtotime($_SESSION['checkin']) < strtotime(date("Y-m-d"))) : ?>
+      <button type="button" class="signinbtn" style="background-color: darkred;">
+        <h2>
+          <div>Cancel Reservation</div>
+        </h2>
+      </button>
+    <?php endif ?>
     <?php if (!isset($_SESSION['username'])) : ?>
-      <button type="button" class="signinbtn" href="" style="background-color: gray;">
+      <button type="button" class="signinbtn" style="background-color: gray;">
         <h2>
           <div>Check In</div>
         </h2>
       </button>
     <?php endif ?>
     <?php if ($_SESSION['checkedIn'] == '0') : ?>
-      <button type="button" class="signinbtn">
+      <button type="button" class="signinbtn" onclick="location.href='customerdash.php?checkedIn=1'">
         <h2>
           <div>Check In</div>
         </h2>
       </button>
     <?php endif ?>
     <?php if ($_SESSION['checkedIn'] == '1') : ?>
-      <button type="button" class="signinbtn">
+      <button type="button" class="signinbtn" onclick="location.href='customerdash.php?checkedIn=0'">
         <h2>
           <div>Check Out</div>
         </h2>
@@ -93,14 +105,14 @@ if (isset($_GET['logout'])) {
     <?php endif ?>
 
     <?php if (!isset($_SESSION['username'])) : ?>
-      <button type="button" class="signinbtn" href="" style="background-color: gray;">
+      <button type="button" class="signinbtn" style="background-color: gray;">
         <h2>
           <div>Contact Front Desk</div>
         </h2>
       </button>
     <?php endif ?>
     <?php if (isset($_SESSION['username'])) : ?>
-      <button type="button" class="signinbtn" href="">
+      <button type="button" class="signinbtn">
         <h2>
           <div>Contact Front Desk</div>
         </h2>

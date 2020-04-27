@@ -25,7 +25,7 @@
     <nav>
       <ul id="horizontal-list">
         <li><a href="index.php" class="active">Home</a></li>
-        <li><a href="about.html">About</a></li>
+        <li><a href="about.php">About</a></li>
         <li><a href="login.php">Login</a></li>
       </ul>
       <h1>
@@ -41,7 +41,7 @@
   </header>
   <main>
     <form method="post" action="register.php">
-	<?php include('errors.php'); ?>
+      <?php include('errors.php'); ?>
       <div class="container">
         <br><br><br>
         <h1>Register</h1>

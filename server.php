@@ -2,7 +2,7 @@
 session_start();
 
 // initializing variables
-$errors = array(); 
+$errors = array();
 
 // connect to the database
 $db = mysqli_connect('localhost', 'scaduser', 'GoAsim1!', 'green-tomatoes');
@@ -22,12 +22,12 @@ if (isset($_POST['submit'])) {
 	array_push($errors, "The two passwords do not match");
   }
   if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {array_push($errors, "Invalid Email format"); }
-  // first check the database to make sure 
+  // first check the database to make sure
   // a user does not already exist with the same username and/or email
   $user_check_query = "SELECT * FROM LOGIN WHERE emailAddress='$email' LIMIT 1";
   $result = mysqli_query($db, $user_check_query);
   $user = mysqli_fetch_assoc($result);
-  
+
   if ($user) { // if user exists
     if ($user['email'] === $email) {
       array_push($errors, "email already exists");
@@ -38,7 +38,7 @@ if (isset($_POST['submit'])) {
   if (count($errors) == 0) {
   	//$password = md5($password_1);//encrypt the password before saving in the database
 
-  	$query = "INSERT INTO LOGIN (emailAddress, isAdmin, password) 
+  	$query = "INSERT INTO LOGIN (emailAddress, isAdmin, password)
   			  VALUES('$email', '0', '$password_1')";
   	mysqli_query($db, $query);
   	$_SESSION['username'] = $email;
@@ -56,7 +56,7 @@ if (isset($_POST['customerinfo'])) {
   $state = mysqli_real_escape_string($db, $_POST['state']);
   $zip = mysqli_real_escape_string($db, $_POST['zip']);
   $email = $_SESSION['username'];
-  
+
   // form validation: ensure that the form is correctly filled ...
   // by adding (array_push()) corresponding error unto $errors array
   if (empty($fName)) { array_push($errors, "Email is required"); }
@@ -70,13 +70,13 @@ if (isset($_POST['customerinfo'])) {
   if (!preg_match("/^[0-9]{10}$/",$phone)) { array_push($errors, "Only 11 numbers without slashes or dashes allowed"); }
   if (!preg_match("/^[a-zA-Z ]{2}$/",$state)) { array_push($errors, "Only 2 letters allowed"); }
   if (!preg_match("/^[0-9]{5}$/",$zip)) { array_push($errors, "Only 5 numbers without slashes or dashes allowed"); }
-  
-  
-  
+
+
+
   // Finally, register user information if there are no errors in the form
   if (count($errors) == 0) {
 
-  	$query = "INSERT INTO CUSTOMER (name, emailAddress, phoneNumber, address, city, state, zip, checkedIn) 
+  	$query = "INSERT INTO CUSTOMER (name, emailAddress, phoneNumber, address, city, state, zip, checkedIn)
   			  VALUES('$fName', '$email', '$phone', '$address', '$city', '$state', '$zip', '0')";
   	mysqli_query($db, $query);
 	$_SESSION['name'] = $fName;
@@ -95,16 +95,16 @@ if (isset($_POST['checkreservation'])){
 	$checkin = mysqli_real_escape_string($db, $_POST['checkin']);
     $checkout = mysqli_real_escape_string($db, $_POST['checkout']);
 	$cottageID = $_SESSION['cottageID'];
-	
+
 	if (count($errors) == 0) {
 
 	  $query = "SELECT lastStayDate FROM COTTAGE WHERE cottageID = '$cottageID'";
 	  $results = mysqli_query($db, $query);
 	  $results1 = mysqli_fetch_array($results);
-	  
+
 	  $date1 = new DateTime($checkin);
 	  $date2 = new DateTime($results1[0]);
-	  
+
 	  if($date1 > $date2){
 		  $_SESSION['checkin'] = $date1;
 		  $_SESSION['checkout'] = $checkout;
@@ -112,7 +112,7 @@ if (isset($_POST['checkreservation'])){
 	  } else {
 		  array_push($errors, "Date is not available. Try a later date.");
 	  }
-	  
+
   }
 }
 

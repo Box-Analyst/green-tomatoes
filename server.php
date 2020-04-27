@@ -206,4 +206,11 @@ if (isset($_POST['login_user'])) {
   	}
   }
 }
+
+if (isset($_GET['cancel'])) {
+  $tid = $_SESSION['transaction'];
+  $query = "UPDATE STAYLOG SET startDate='0000-00-00',endDate='0000-00-00' WHERE stayLogID = (SELECT stayLogID FROM RESERVATION WHERE transactionID = '$tid')";
+  mysqli_query($db, $query);
+  header("location: customerdash.php");
+}
 ?>

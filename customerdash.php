@@ -1,6 +1,5 @@
 <?php
 session_start();
-$db = mysqli_connect('localhost', 'scaduser', 'GoAsim1!', 'green-tomatoes');
 
 if (!isset($_SESSION['username'])) {
   $_SESSION['msg'] = "You must log in to reserve a room";
@@ -12,12 +11,6 @@ if (isset($_GET['logout'])) {
 }
 if (isset($_GET['checkedIn'])) {
   $_SESSION['checkedIn'] = $_GET['checkedIn'];
-  header("location: customerdash.php");
-}
-if (isset($_GET['cancel'])) {
-  $tid = $_SESSION['transaction'];
-  $query = "UPDATE STAYLOG SET startDate='0000-00-00',endDate='0000-00-00' WHERE stayLogID = (SELECT stayLogID FROM RESERVATION WHERE transactionID = '$tid')";
-  mysqli_query($db, $query);
   header("location: customerdash.php");
 }
 ?>
@@ -74,6 +67,7 @@ if (isset($_GET['cancel'])) {
     <!-- logged in user information -->
     <?php if (isset($_SESSION['username'])) : ?>
       <p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
+      <p><strong><?php echo $_SESSION['transaction']; ?></strong></p>
     <?php endif ?>
     <?php if (!isset($_SESSION['username'])) : ?>
       <p> <a href="login.php?msg='1'" style="color: red;">You must Login to use this page.</a> </p>
@@ -82,7 +76,7 @@ if (isset($_GET['cancel'])) {
     <p>Use this page to check in/out and request services after you arrive!</p>
     <!-- TODO: make button say "canel reservation" if before reservation date -->
     <?php if (($_SESSION['checkin'] < date("Y-m-d")) || ($_SESSION['checkin'] != '0000-00-00')) : ?>
-      <button type="button" class="signinbtn" onclick="location.href='customerdash.php?cancel=1'" style="background-color: darkred;">
+      <button type="button" class="signinbtn" onclick="location.href='server.php?cancel'" style="background-color: darkred;">
         <h2>
           <div>Cancel Reservation</div>
         </h2>

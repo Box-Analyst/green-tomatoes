@@ -76,11 +76,11 @@
 		<p>Check Out Date: <?php echo $_SESSION['checkout']; ?></p>
         <hr>
 		    <label for="cardNumber"><b>Card Number</b></label>
-        <input type="text"name="cardNumber" required>
+        <input type="text"name="cardNumber" maxlength="16" required>
 		    <label for="expDate"><b>Expiration Date</b></label>
-        <input type="text"name="expDate" required>
+        <input type="text"name="expDate" maxlength="5" required>
 		   <label for="svcNumber"><b>CVV Number</b></label>
-        <input type="text"name="svcNumber" required>
+        <input type="text"name="svcNumber"maxlength="3" required>
 		<hr>
 		<button type="submit" class="registerbtn" name="makepayment">Confirm Transaction</button>
       </div>

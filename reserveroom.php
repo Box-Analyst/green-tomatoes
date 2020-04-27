@@ -1,15 +1,15 @@
 <?php include('server.php') ?>
 <?php
-  session_start();
+session_start();
 
-  if (!isset($_SESSION['username'])) {
-  	$_SESSION['msg'] = "You must log in to reserve a room";
-  }
-  if (isset($_GET['logout'])) {
-  	session_destroy();
-  	unset($_SESSION['username']);
-  	header("location: login.php");
-  }
+if (!isset($_SESSION['username'])) {
+  $_SESSION['msg'] = "You must log in to reserve a room";
+}
+if (isset($_GET['logout'])) {
+  session_destroy();
+  unset($_SESSION['username']);
+  header("location: login.php");
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -39,12 +39,12 @@
       <ul id="horizontal-list">
         <li><a href="index.php" class="active">Home</a></li>
         <li><a href="about.php">About</a></li>
-		<?php  if (isset($_SESSION['username'])) : ?>
-        <li><a href="index.php?logout='1'">Logout</a></li>
-		<?php endif ?>
-		<?php  if (!isset($_SESSION['username'])) : ?>
-        <li><a href="login.php">Login</a></li>
-		<?php endif ?>
+        <?php if (isset($_SESSION['username'])) : ?>
+          <li><a href="index.php?logout='1'">Logout</a></li>
+        <?php endif ?>
+        <?php if (!isset($_SESSION['username'])) : ?>
+          <li><a href="login.php">Login</a></li>
+        <?php endif ?>
       </ul>
       <h1>
         <button type="button" id="menu" onclick="mobiMenuOpen()">
@@ -59,26 +59,26 @@
   </header>
   <main>
     <form method="post" action="reserveroom.php">
-	<?php include('errors.php'); ?>
+      <?php include('errors.php'); ?>
       <div class="container">
         <br><br><br>
         <h1>Reserve a Room</h1>
         <p>Name: <?php echo $_SESSION['name']; ?></p>
-		<p>Email: <?php echo $_SESSION['username']; ?></p>
-		<p>Phone: <?php echo $_SESSION['phone']; ?></p>
-		<p>Address: <?php echo $_SESSION['address']; ?></p>
-		<p>City: <?php echo $_SESSION['city']; ?></p>
-		<p>State: <?php echo $_SESSION['state']; ?></p>
-		<p>Zip: <?php echo $_SESSION['zip']; ?></p>
-		<p>Cottage: <?php echo $_SESSION['cottageName']; ?></p>
-		<p>CottageID: <?php echo $_SESSION['cottageID']; ?></p>
+        <p>Email: <?php echo $_SESSION['username']; ?></p>
+        <p>Phone: <?php echo $_SESSION['phone']; ?></p>
+        <p>Address: <?php echo $_SESSION['address']; ?></p>
+        <p>City: <?php echo $_SESSION['city']; ?></p>
+        <p>State: <?php echo $_SESSION['state']; ?></p>
+        <p>Zip: <?php echo $_SESSION['zip']; ?></p>
+        <p>Cottage: <?php echo $_SESSION['cottageName']; ?></p>
+        <p>CottageID: <?php echo $_SESSION['cottageID']; ?></p>
         <hr>
-		    <label for="checkin"><b>Check-in</b></label>
+        <label for="checkin"><b>Check-in</b></label>
         <input type="text" placeholder="YYYY-MM-DD" name="checkin" required>
-		    <label for="checkout"><b>Check-out</b></label>
+        <label for="checkout"><b>Check-out</b></label>
         <input type="text" placeholder="YYYY-MM-DD" name="checkout" required>
-		<hr>
-		<button type="submit" class="registerbtn saveinfobtn" name="checkreservation">Check Availability</button>
+        <hr>
+        <button type="submit" class="registerbtn saveinfobtn" name="checkreservation">Check Availability</button>
       </div>
 
 

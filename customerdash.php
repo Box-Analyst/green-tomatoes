@@ -1,14 +1,14 @@
 <?php
-  session_start();
+session_start();
 
-  if (!isset($_SESSION['username'])) {
-  	$_SESSION['msg'] = "You must log in to reserve a room";
-  }
-  if (isset($_GET['logout'])) {
-  	session_destroy();
-  	unset($_SESSION['username']);
-  	header("location: login.php");
-  }
+if (!isset($_SESSION['username'])) {
+  $_SESSION['msg'] = "You must log in to reserve a room";
+}
+if (isset($_GET['logout'])) {
+  session_destroy();
+  unset($_SESSION['username']);
+  header("location: login.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,12 +38,12 @@
       <ul id="horizontal-list">
         <li><a href="index.php" class="active">Home</a></li>
         <li><a href="about.php">About</a></li>
-        <?php  if (isset($_SESSION['username'])) : ?>
-        <li><a href="index.php?logout='1'">Logout</a></li>
-		<?php endif ?>
-		<?php  if (!isset($_SESSION['username'])) : ?>
-        <li><a href="login.php">Login</a></li>
-		<?php endif ?>
+        <?php if (isset($_SESSION['username'])) : ?>
+          <li><a href="index.php?logout='1'">Logout</a></li>
+        <?php endif ?>
+        <?php if (!isset($_SESSION['username'])) : ?>
+          <li><a href="login.php">Login</a></li>
+        <?php endif ?>
       </ul>
       <h1>
         <button type="button" id="menu" onclick="mobiMenuOpen()">
@@ -60,32 +60,52 @@
   <main>
 
     <h1>Customer Dashboard</h1>
-      <!-- logged in user information -->
-      <?php  if (isset($_SESSION['username'])) : ?>
+    <!-- logged in user information -->
+    <?php if (isset($_SESSION['username'])) : ?>
       <p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
-      <?php endif ?>
-      <?php  if (!isset($_SESSION['username'])) : ?>
+    <?php endif ?>
+    <?php if (!isset($_SESSION['username'])) : ?>
       <p> <a href="login.php?msg='1'" style="color: red;">You must Login to use this page.</a> </p>
-      <?php endif ?>
+    <?php endif ?>
     </div>
     <p>Use this page to check in/out and request services after you arrive!</p>
-    <!-- Make 'Check Out' if already checked in -->
-    <button type="button" class="signinbtn">
-      <h2>
-      <?php  if ($_SESSION['checkedIn'] != '0') : ?>
-        <div href="">Check In</div>
-      <?php endif ?>
-      <?php  if ($_SESSION['checkedIn'] == '1') : ?>
-        <div href="">Check Out</div>
-      <?php endif ?>
-      </h2>
-    </button>
+    <!-- TODO: make button say "canel reservation" if before reservation date -->
+    <?php if (!isset($_SESSION['username'])) : ?>
+      <button type="button" class="signinbtn" href="" style="background-color: gray;">
+        <h2>
+          <div>Check In</div>
+        </h2>
+      </button>
+    <?php endif ?>
+    <?php if ($_SESSION['checkedIn'] == '0') : ?>
+      <button type="button" class="signinbtn">
+        <h2>
+          <div>Check In</div>
+        </h2>
+      </button>
+    <?php endif ?>
+    <?php if ($_SESSION['checkedIn'] == '1') : ?>
+      <button type="button" class="signinbtn">
+        <h2>
+          <div>Check Out</div>
+        </h2>
+      </button>
+    <?php endif ?>
 
-    <button type="button" class="signinbtn">
-      <h2>
-        <div href="">Contact Front Desk</div>
-      </h2>
-    </button>
+    <?php if (!isset($_SESSION['username'])) : ?>
+      <button type="button" class="signinbtn" href="" style="background-color: gray;">
+        <h2>
+          <div>Contact Front Desk</div>
+        </h2>
+      </button>
+    <?php endif ?>
+    <?php if (isset($_SESSION['username'])) : ?>
+      <button type="button" class="signinbtn" href="">
+        <h2>
+          <div>Contact Front Desk</div>
+        </h2>
+      </button>
+    <?php endif ?>
 
   </main>
 

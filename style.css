@@ -1,5 +1,5 @@
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   color: #000000;
   display: grid;
   text-align: center;
@@ -32,8 +32,9 @@ header {
 }
 
 /* Full-width input fields */
-input[type=text],
-input[type=password] {
+input[type="text"],
+input[type="email"],
+input[type="password"] {
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
@@ -42,8 +43,9 @@ input[type=password] {
   background: #f1f1f1;
 }
 
-input[type=text]:focus,
-input[type=password]:focus {
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
   background-color: #ddd;
   outline: none;
 }
@@ -57,7 +59,7 @@ hr {
 /* Set a style for the submit button */
 .signinbtn,
 .registerbtn {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   padding: 16px 20px;
   margin: 8px 0;
@@ -125,7 +127,8 @@ nav ul li:active {
 
 nav ul li a:focus,
 nav ul li a:hover,
-nav ul li a:active {}
+nav ul li a:active {
+}
 
 main {
   grid-row: 2;

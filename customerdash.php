@@ -1,6 +1,17 @@
-<?php include('server.php')?>
+<?php
+  session_start();
+
+  if (!isset($_SESSION['username'])) {
+  	$_SESSION['msg'] = "You must log in to reserve a room";
+  }
+  if (isset($_GET['logout'])) {
+  	session_destroy();
+  	unset($_SESSION['username']);
+  	header("location: login.php");
+  }
+?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <link rel="icon" type="image/png" href="./media/favicon.png">
@@ -20,13 +31,19 @@
 </head>
 
 <body>
+
   <header>
     <h1><a id="green">Green </a><a id="red">Tomatoes</a></h1>
     <nav>
       <ul id="horizontal-list">
         <li><a href="index.php" class="active">Home</a></li>
         <li><a href="about.php">About</a></li>
+        <?php  if (isset($_SESSION['username'])) : ?>
+        <li><a href="index.php?logout='1'">Logout</a></li>
+		<?php endif ?>
+		<?php  if (!isset($_SESSION['username'])) : ?>
         <li><a href="login.php">Login</a></li>
+		<?php endif ?>
       </ul>
       <h1>
         <button type="button" id="menu" onclick="mobiMenuOpen()">
@@ -39,29 +56,33 @@
       <h1 id="menuClose"><i class="fas fa-times" onclick="mobiMenuClose()"></i></h1>
     </div>
   </header>
+
   <main>
-    <form method="post" action="login.php">
-	<?php include('errors.php'); ?>
-      <div class="container">
-        <br><br><br>
-        <h1>Login</h1>
-        <hr>
 
-        <label for="email"><b>Email</b></label>
-        <input type="email" placeholder="Enter Email" name="email" required>
+      <!-- logged in user information -->
+      <?php  if (isset($_SESSION['username'])) : ?>
+      <p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
+      <?php endif ?>
+      <?php  if (!isset($_SESSION['username'])) : ?>
+      <p> <a href="login.php?msg='1'" style="color: red;">You must Login to use this page.</a> </p>
+      <?php endif ?>
+    </div>
 
-        <label for="psw"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" required>
+    <h1>Customer Dashboard</h1>
+    <p>Use this page to check in/out and request services after you arrive!</p>
+    <!-- Make 'Check Out' if already checked in -->
+    <button type="button">
+      <h2>
+        <div>Check In</div>
+      </h2>
+    </button>
 
+    <button type="button">
+      <h2>
+        <div>Contact Front Desk</div>
+      </h2>
+    </button>
 
-        <hr>
-        <p>Not registered? <a href="./register.php">Create an account</a>.</p>
-
-        <button type="login_user" class="signinbtn" name="login_user">Sign in</button>
-      </div>
-
-
-    </form>
   </main>
 
   <footer>
@@ -71,7 +92,6 @@
     </div>
     <br>
   </footer>
-
 </body>
 
 </html>

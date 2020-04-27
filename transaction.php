@@ -1,4 +1,16 @@
-<?php include('server.php')?>
+<?php include('server.php') ?>
+<?php
+  session_start();
+
+  if (!isset($_SESSION['username'])) {
+  	$_SESSION['msg'] = "You must log in to reserve a room";
+  }
+  if (isset($_GET['logout'])) {
+  	session_destroy();
+  	unset($_SESSION['username']);
+  	header("location: login.php");
+  }
+?>
 <!DOCTYPE html>
 <html>
 
@@ -12,6 +24,7 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
   <link href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" rel="stylesheet">
   <!--Inport Scripts-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="./script.js"></script>
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -26,7 +39,12 @@
       <ul id="horizontal-list">
         <li><a href="index.php" class="active">Home</a></li>
         <li><a href="about.php">About</a></li>
+		<?php  if (isset($_SESSION['username'])) : ?>
+        <li><a href="index.php?logout='1'">Logout</a></li>
+		<?php endif ?>
+		<?php  if (!isset($_SESSION['username'])) : ?>
         <li><a href="login.php">Login</a></li>
+		<?php endif ?>
       </ul>
       <h1>
         <button type="button" id="menu" onclick="mobiMenuOpen()">
@@ -40,24 +58,31 @@
     </div>
   </header>
   <main>
-    <form method="post" action="login.php">
+    <form method="post" action="transaction.php">
 	<?php include('errors.php'); ?>
       <div class="container">
         <br><br><br>
-        <h1>Login</h1>
+        <h1>Payment Info</h1>
+        <p>Name: <?php echo $_SESSION['name']; ?></p>
+		<p>Email: <?php echo $_SESSION['username']; ?></p>
+		<p>Phone: <?php echo $_SESSION['phone']; ?></p>
+		<p>Address: <?php echo $_SESSION['address']; ?></p>
+		<p>City: <?php echo $_SESSION['city']; ?></p>
+		<p>State: <?php echo $_SESSION['state']; ?></p>
+		<p>Zip: <?php echo $_SESSION['zip']; ?></p>
+		<p>Cottage: <?php echo $_SESSION['cottageName']; ?></p>
+		<p>CottageID: <?php echo $_SESSION['cottageID']; ?></p>
+		<p>Check In Date: <?php echo $_SESSION['checkin']; ?></p>
+		<p>Check Out Date: <?php echo $_SESSION['checkout']; ?></p>
         <hr>
-
-        <label for="email"><b>Email</b></label>
-        <input type="email" placeholder="Enter Email" name="email" required>
-
-        <label for="psw"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" required>
-
-
-        <hr>
-        <p>Not registered? <a href="./register.php">Create an account</a>.</p>
-
-        <button type="login_user" class="signinbtn" name="login_user">Sign in</button>
+		    <label for="cardNumber"><b>Card Number</b></label>
+        <input type="text"name="cardNumber" required>
+		    <label for="expDate"><b>Expiration Date</b></label>
+        <input type="text"name="expDate" required>
+		   <label for="svcNumber"><b>CVV Number</b></label>
+        <input type="text"name="svcNumber" required>
+		<hr>
+		<button type="submit" class="registerbtn" name="makepayment">Confirm Transaction</button>
       </div>
 
 

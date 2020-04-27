@@ -83,6 +83,7 @@
     <option value="amex">AMEX</option>
 	  </select>
 	  <br><br>
+	      <h4>Please Note: You will be charged a $20 Reservation fee. Your stay fee will be charged upon check-in.</h4>
 		    <label for="cardNumber"><b>Card Number</b></label>
         <input type="text"name="cardNumber" maxlength="16" required>
 		    <label for="expDate"><b>Expiration Date</b></label>

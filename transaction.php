@@ -74,15 +74,28 @@
 		<p>CottageID: <?php echo $_SESSION['cottageID']; ?></p>
 		<p>Check In Date: <?php echo $_SESSION['checkin']; ?></p>
 		<p>Check Out Date: <?php echo $_SESSION['checkout']; ?></p>
-        <hr>
+        <hr><br>
+		    <label for="cardtype"><b>Credit Card Type</b></label><br>
+  <select id="card_type" name="cardtype">
+    <option value="visa">Visa</option>
+    <option value="Mastercard">Mastercard</option>
+    <option value="Discover">Discover</option>
+    <option value="amex">AMEX</option>
+	  </select>
+	  <br><br>
+	      <h4>Please Note: You will be charged a $20 Reservation fee. Your stay fee will be charged upon check-in.</h4>
 		    <label for="cardNumber"><b>Card Number</b></label>
-        <input type="text"name="cardNumber" required>
+        <input type="text"name="cardNumber" maxlength="16" required>
 		    <label for="expDate"><b>Expiration Date</b></label>
-        <input type="text"name="expDate" required>
-		   <label for="svcNumber"><b>SVC Number</b></label>
-        <input type="text"name="svcNumber" required>
+        <input type="text"name="expDate" maxlength="5" required>
+		   <label for="svcNumber"><b>CVV Number</b></label>
+        <input type="text"name="svcNumber"maxlength="3" required>
+	      <label for="CardholderName"><b>Cardholder Name</b></label>
+        <input type="text"name="CardholderName"  maxlength="30" required>
+		   <label for="BillingZip"><b>Billing Zip</b></label>
+        <input type="text"name="BillingZip"  maxlength="5" required>
 		<hr>
-		<button type="submit" class="makepaymentbtn" name="makepayment">Confirm Transaction</button>
+		<button type="submit" class="registerbtn" name="makepayment">Confirm Transaction</button>
       </div>
 
 

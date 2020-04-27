@@ -79,6 +79,10 @@ if (isset($_POST['customerinfo'])) {
   	$query = "INSERT INTO CUSTOMER (name, emailAddress, phoneNumber, address, city, state, zip, checkedIn)
   			  VALUES('$fName', '$email', '$phone', '$address', '$city', '$state', '$zip', '0')";
   	mysqli_query($db, $query);
+	$query2 = "SELECT customerID FROM CUSTOMER WHERE emailAddress = '$email'";
+	$results = mysqli_query($db, $query2);
+	$row = mysqli_fetch_array($results);
+	$_SESSION['customerID'] = row[0];
 	$_SESSION['name'] = $fName;
 	$_SESSION['username'] = $email;
 	$_SESSION['phone'] = $phone;
@@ -97,23 +101,62 @@ if (isset($_POST['checkreservation'])){
 	$cottageID = $_SESSION['cottageID'];
 
 	if (count($errors) == 0) {
-
 	  $query = "SELECT lastStayDate FROM COTTAGE WHERE cottageID = '$cottageID'";
 	  $results = mysqli_query($db, $query);
 	  $results1 = mysqli_fetch_array($results);
 
-	  $date1 = new DateTime($checkin);
-	  $date2 = new DateTime($results1[0]);
+	  $date1 = date('Y-m-d', strtotime($checkin));
+	  $date2 = date('Y-m-d', strtotime($results1[0]));
+	  $date3 = date('Y-m-d', strtotime($checkout));
 
-	  if($date1 > $date2){
-		  $_SESSION['checkin'] = $date1;
-		  $_SESSION['checkout'] = $checkout;
-		  header('location: transaction.php');
-	  } else {
-		  array_push($errors, "Date is not available. Try a later date.");
+	  if($date1 < date("Y-m-d")){
+		  array_push($errors, "Check-in date is in the past.");
 	  }
+	  if (count($errors) == 0) {
+		  if($date1 > $date2){
+			  $_SESSION['checkin'] = $date1;
+			  $_SESSION['checkout'] = $date3;
+			  header('location: transaction.php');
+		  } else {
+			  array_push($errors, "Check-in date is not available. Try a later date.");
+		  }
+	  }
+	}
+}
 
-  }
+if(isset($_POST['makepayment'])){
+	$datePaid = date('Y-m-d');
+	$customerID = $_SESSION['customerID'];
+	$reservationID = $_SESSION['reservationID'];
+	$checkout = $_SESSION['checkout'];
+	$checkin = $_SESSION['checkin'];
+	$cottageID = $_SESSION['cottageID'];
+
+	if(count($errors) == 0){
+		$query = "INSERT INTO TRANSACTIONINFO (amountPaid, customerID, datePaid)
+		VALUES('20', '$customerID', '$datePaid')";
+		mysqli_query($db, $query);
+		$query2 = "INSERT INTO STAYLOG (customerID, endDate, startDate)
+		VALUES('$customerID', '$checkout', '$checkin')";
+		mysqli_query($db, $query2);
+		$query3 = "UPDATE COTTAGE
+		SET lastStayDate = '$checkout'
+		WHERE cottageID = '$cottageID'";
+		mysqli_query($db, $query3);
+		$query4 = "SELECT stayLogID FROM STAYLOG WHERE customerID = '$customerID' AND startDate = '$checkin'";
+		$results = mysqli_query($db, $query4);
+		$row = mysqli_fetch_array($results);
+		$stayLogID = $row[0];
+		$query5 = "SELECT transactionID FROM TRANSACTIONINFO WHERE customerID = '$customerID' AND datePaid = '$datePaid'";
+		$results1 = mysqli_query($db, $query5);
+		$row1 = mysqli_fetch_array($results1);
+		$transactionID = $row1[0];
+		$query6 = "INSERT INTO RESERVATION (cottageID, customerID, stayLogID, transactionID)
+		VALUES('$cottageID', '$customerID', '$stayLogID', '$transactionID')";
+		mysqli_query($db, $query6);
+		header('location: index.php');
+	}
+
 }
 
 if (isset($_POST['login_user'])) {
@@ -132,7 +175,7 @@ if (isset($_POST['login_user'])) {
   	$query = "SELECT * FROM LOGIN WHERE emailAddress='$email' AND password='$password'";
   	$results = mysqli_query($db, $query);
   	if (mysqli_num_rows($results) == 1) {
-	  $query1 = "SELECT name, phoneNumber, address, city, state, zip, checkedIn FROM CUSTOMER WHERE emailAddress='$email'";
+	  $query1 = "SELECT name, phoneNumber, address, city, state, zip, checkedIn, customerID FROM CUSTOMER WHERE emailAddress='$email'";
 	  $results1 = mysqli_query($db, $query1);
 	  $row = mysqli_fetch_array($results1);
   	  $_SESSION['username'] = $email;
@@ -144,6 +187,7 @@ if (isset($_POST['login_user'])) {
 	  $_SESSION['state'] = $row[4];
 	  $_SESSION['zip'] = $row[5];
 	  $_SESSION['checkedIn'] = $row[6];
+	  $_SESSION['customerID'] = $row[7];
   	  header('location: index.php');
   	}else {
   		array_push($errors, "Wrong email/password combination");

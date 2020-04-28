@@ -62,7 +62,7 @@ if (isset($_GET['logout'])) {
     <h1>Customer Dashboard</h1>
     <!-- logged in user information -->
     <?php if (isset($_SESSION['username'])) : ?>
-      <p>Welcome <strong><?php echo $_SESSION['username']; ?></strong> (Customer ID: <?php echo $_SESSION['transaction']; ?>)</p>
+      <p>Welcome <strong><?php echo $_SESSION['username']; ?></strong> (CID: <?php echo $_SESSION['customerID']; ?> TID: <?php echo $_SESSION['transaction']; ?>)</p>
     <?php endif ?>
     <?php if (!isset($_SESSION['username'])) : ?>
       <p> <a href="login.php?msg='1'" style="color: red;">You must Login to use this page.</a> </p>
@@ -70,7 +70,7 @@ if (isset($_GET['logout'])) {
     </div>
     <p>Use this page to check in/out and request services after you arrive!</p>
     <!-- TODO: make button say "canel reservation" if before reservation date -->
-    <?php if (($_SESSION['checkin'] < date("Y-m-d")) && ($_SESSION['checkin'] != '0000-00-00')) : ?>
+    <?php if (($_SESSION['checkin'] > date("Y-m-d")) && ($_SESSION['checkin'] != '0000-00-00')) : ?>
       <button type="button" class="signinbtn" onclick="location.href='server.php?cancel'" style="background-color: darkred;">
         <h2>
           <div>Cancel Reservation</div>

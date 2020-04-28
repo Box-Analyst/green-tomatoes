@@ -9,10 +9,6 @@ if (isset($_GET['logout'])) {
   unset($_SESSION['username']);
   header("location: login.php");
 }
-if (isset($_GET['checkedIn'])) {
-  $_SESSION['checkedIn'] = $_GET['checkedIn'];
-  header("location: customerdash.php");
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -66,8 +62,7 @@ if (isset($_GET['checkedIn'])) {
     <h1>Customer Dashboard</h1>
     <!-- logged in user information -->
     <?php if (isset($_SESSION['username'])) : ?>
-      <p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
-      <p><strong><?php echo $_SESSION['transaction']; ?></strong></p>
+      <p>Welcome <strong><?php echo $_SESSION['username']; ?></strong> (Customer ID: <?php echo $_SESSION['transaction']; ?>)</p>
     <?php endif ?>
     <?php if (!isset($_SESSION['username'])) : ?>
       <p> <a href="login.php?msg='1'" style="color: red;">You must Login to use this page.</a> </p>
@@ -75,7 +70,7 @@ if (isset($_GET['checkedIn'])) {
     </div>
     <p>Use this page to check in/out and request services after you arrive!</p>
     <!-- TODO: make button say "canel reservation" if before reservation date -->
-    <?php if (($_SESSION['checkin'] < date("Y-m-d")) || ($_SESSION['checkin'] != '0000-00-00')) : ?>
+    <?php if (($_SESSION['checkin'] < date("Y-m-d")) && ($_SESSION['checkin'] != '0000-00-00')) : ?>
       <button type="button" class="signinbtn" onclick="location.href='server.php?cancel'" style="background-color: darkred;">
         <h2>
           <div>Cancel Reservation</div>
@@ -90,14 +85,14 @@ if (isset($_GET['checkedIn'])) {
       </button>
     <?php endif ?>
     <?php if ($_SESSION['checkedIn'] == '0') : ?>
-      <button type="button" class="signinbtn" onclick="location.href='customerdash.php?checkedIn=1'">
+      <button type="button" class="signinbtn" onclick="location.href='server.php?checkedIn=1'">
         <h2>
           <div>Check In</div>
         </h2>
       </button>
     <?php endif ?>
     <?php if ($_SESSION['checkedIn'] == '1') : ?>
-      <button type="button" class="signinbtn" onclick="location.href='customerdash.php?checkedIn=0'">
+      <button type="button" class="signinbtn" onclick="location.href='server.php?checkedIn=0'">
         <h2>
           <div>Check Out</div>
         </h2>

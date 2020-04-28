@@ -213,4 +213,13 @@ if (isset($_GET['cancel'])) {
   mysqli_query($db, $query);
   header("location: customerdash.php");
 }
+
+if (isset($_GET['checkedIn'])) {
+  $_SESSION['checkedIn'] = $_GET['checkedIn'];
+  $chk = $_SESSION['checkedIn'];
+  $cust = $_SESSION['customerID'];
+  $query = "UPDATE CUSTOMER SET checkedIn='$chk' WHERE customerID = '$cust'";
+  mysqli_query($db, $query);
+  header("location: customerdash.php");
+}
 ?>

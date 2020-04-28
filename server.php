@@ -154,6 +154,9 @@ if(isset($_POST['makepayment'])){
 		$query6 = "INSERT INTO RESERVATION (cottageID, customerID, stayLogID, transactionID)
 		VALUES('$cottageID', '$customerID', '$stayLogID', '$transactionID')";
 		mysqli_query($db, $query6);
+		$_SESSION['transaction'] = $transactionID;
+		$_SESSION['stayLogID'] = $stayLogID;
+		
 		header('location: index.php');
 	}
 
@@ -193,12 +196,10 @@ if (isset($_POST['login_user'])) {
     $results2 = mysqli_query($db, $query2);
     $row2 = mysqli_fetch_array($results2);
     $_SESSION['transaction'] = $row2[0];
-    $query3 = "SELECT transactionID, stayLogID FROM RESERVATION WHERE transactionID = $row2[0]";
+    $query3 = "SELECT stayLogID FROM RESERVATION WHERE transactionID = $row2[0]";
     $results3 = mysqli_query($db, $query3);
     $row3 = mysqli_fetch_array($results3);
-    $_SESSION['transaction'] = $row2[0];
-    $_SESSION['checkin'] = $row3[0];
-		$_SESSION['checkout'] = $row3[1];
+	$_SESSION['stayLogID'] = $row3[0];
 
   	  header('location: index.php');
   	}else {

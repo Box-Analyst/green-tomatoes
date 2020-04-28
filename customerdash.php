@@ -77,21 +77,21 @@ if (isset($_GET['logout'])) {
         </h2>
       </button>
     <?php endif ?>
-    <?php if (!isset($_SESSION['username'])) : ?>
+    <?php if ((!isset($_SESSION['username'])) || (($_SESSION['checkin'] < date("Y-m-d")) && ($_SESSION['checkout'] > date("Y-m-d")))) : ?>
       <button type="button" class="signinbtn" style="background-color: gray;">
         <h2>
           <div>Check In</div>
         </h2>
       </button>
     <?php endif ?>
-    <?php if ($_SESSION['checkedIn'] == '0') : ?>
+    <?php if (($_SESSION['checkedIn'] == '0') || ($_SESSION['checkin'] == date("Y-m-d"))) : ?>
       <button type="button" class="signinbtn" onclick="location.href='server.php?checkedIn=1'">
         <h2>
           <div>Check In</div>
         </h2>
       </button>
     <?php endif ?>
-    <?php if ($_SESSION['checkedIn'] == '1') : ?>
+    <?php if (($_SESSION['checkedIn'] == '1') || ($_SESSION['checkout'] == date("Y-m-d"))) : ?>
       <button type="button" class="signinbtn" onclick="location.href='server.php?checkedIn=0'">
         <h2>
           <div>Check Out</div>

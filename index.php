@@ -113,7 +113,7 @@
     <h3 id="reshead">Reservations</h3>
 
     <div id="resCard">
-      <img src="./media/landing/2.jpg" id="resimg">
+      <img src="./media/landing/4.jpg" id="resimg">
       <h4>Tomato Cottage</h4>
       <p>This is our primier cottage. Featuring wonderful views of our fields and pond, the Tomato Cottage is the place
         to be.<br>
@@ -136,7 +136,7 @@
     </div>
 
     <div id="resCard">
-      <img src="./media/landing/1.jpg" id="resimg">
+      <img src="./media/landing/2.jpg" id="resimg">
       <h4>Watermelon Cottage</h4>
       <p>This is our midrange cottage. Featuring wonderful views of a field and some woods, the Watermelon Cottage is
         the place to be.<br>
@@ -182,7 +182,7 @@
     </div>
 
     <div id="resCard">
-      <img src="./media/landing/4.jpg" id="resimg">
+      <img src="./media/landing/1.jpg" id="resimg">
       <h4>Sunflower Cottage</h4>
       <p>This is on of our budget cottages. Featuring wonderful views of a sunflower field, the Sunflower Cottage is the
         place to be.<br>

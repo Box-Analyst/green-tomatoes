@@ -149,6 +149,12 @@ main * {
   grid-column: 2;
 }
 
+#slideshow-container {
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
 #slides {
   width: 100%;
   height: auto;

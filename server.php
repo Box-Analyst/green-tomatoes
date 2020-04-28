@@ -82,7 +82,7 @@ if (isset($_POST['customerinfo'])) {
 	$query2 = "SELECT customerID FROM CUSTOMER WHERE emailAddress = '$email'";
 	$results = mysqli_query($db, $query2);
 	$row = mysqli_fetch_array($results);
-	$_SESSION['customerID'] = row[0];
+	$_SESSION['customerID'] = $row[0];
 	$_SESSION['name'] = $fName;
 	$_SESSION['username'] = $email;
 	$_SESSION['phone'] = $phone;

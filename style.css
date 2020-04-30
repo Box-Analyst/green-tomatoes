@@ -149,6 +149,12 @@ main * {
   grid-column: 2;
 }
 
+#slideshow-container {
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
 #slides {
   width: 100%;
   height: auto;
@@ -254,6 +260,17 @@ a:active {
     justify-content: space-between;
     animation-name: mobiMenuOpen;
     animation-duration: 1s;
+  }
+
+  #mobiMenu nav ul {
+    display: inline-block;
+    list-style: none;
+    padding-top: 1em;
+    margin-left: -4em;
+  }
+
+  #mobiMenu nav ul li {
+    float: inline-start;
   }
 
   #slides {

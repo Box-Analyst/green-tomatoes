@@ -102,7 +102,6 @@ if (isset($_GET['cottageName'])) {
       <h3>Welcome!</h3>
       <p>Come stay in one of our cottages and experience a peaceful farming life in luxury!</p>
       <a href="#more">
-        <p id="morebtn">Learn More</p>
       </a>
       <a name="more"><br></a>
     </div>

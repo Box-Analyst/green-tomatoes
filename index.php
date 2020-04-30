@@ -1,30 +1,30 @@
 <?php
-  session_start();
+session_start();
 
-  if (!isset($_SESSION['username'])) {
-  	$_SESSION['msg'] = "You must log in to reserve a room";
+if (!isset($_SESSION['username'])) {
+  $_SESSION['msg'] = "You must log in to reserve a room";
+}
+if (isset($_GET['logout'])) {
+  session_destroy();
+  unset($_SESSION['username']);
+  header("location: login.php");
+}
+if (isset($_GET['cottageName'])) {
+  $cottageName = $_GET['cottageName'];
+  $_SESSION['cottageName'] = $cottageName;
+  if ($cottageName == 'Tomato Cottage') {
+    $_SESSION['cottageID'] = '1';
+  } else if ($cottageName == 'Watermelon Cottage') {
+    $_SESSION['cottageID'] = '2';
+  } else if ($cottageName == 'Corn Cottage') {
+    $_SESSION['cottageID'] = '3';
+  } else if ($cottageName == 'Sunflower Cottage') {
+    $_SESSION['cottageID'] = '4';
+  } else if ($cottageName == 'Wheat Cottage') {
+    $_SESSION['cottageID'] = '5';
   }
-  if (isset($_GET['logout'])) {
-  	session_destroy();
-  	unset($_SESSION['username']);
-  	header("location: login.php");
-  }
-  if (isset($_GET['cottageName'])){
-	  $cottageName = $_GET['cottageName'];
-	  $_SESSION['cottageName'] = $cottageName;
-	  if($cottageName == 'Tomato Cottage'){
-		  $_SESSION['cottageID'] = '1';
-	  } else if($cottageName == 'Watermelon Cottage'){
-		  $_SESSION['cottageID'] = '2';
-	  } else if($cottageName == 'Corn Cottage'){
-		  $_SESSION['cottageID'] = '3';
-	  } else if($cottageName == 'Sunflower Cottage'){
-		  $_SESSION['cottageID'] = '4';
-	  } else if($cottageName == 'Wheat Cottage'){
-		  $_SESSION['cottageID'] = '5';
-	  }
-	  header("location: reserveroom.php");
-  }
+  header("location: reserveroom.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -55,11 +55,14 @@
       <ul id="horizontal-list">
         <li><a href="index.php" class="active">Home</a></li>
         <li><a href="about.php">About</a></li>
-        <?php  if (isset($_SESSION['username'])) : ?>
-        <li><a href="index.php?logout='1'">Logout</a></li>
+        <?php if (isset($_SESSION['username'])) : ?>
+          <li><a href="customerdash.php"><?php echo $_SESSION['username']; ?></a></li>
         <?php endif ?>
-        <?php  if (!isset($_SESSION['username'])) : ?>
-        <li><a href="login.php">Login</a></li>
+        <?php if (isset($_SESSION['username'])) : ?>
+          <li><a href="index.php?logout='1'">Logout</a></li>
+        <?php endif ?>
+        <?php if (!isset($_SESSION['username'])) : ?>
+          <li><a href="login.php">Login</a></li>
         <?php endif ?>
       </ul>
       <h1>
@@ -78,20 +81,16 @@
     <div>
       <!-- notification message -->
       <?php if (isset($_SESSION['success'])) : ?>
-      <div class="error success">
-        <p>
-          <?php
-          	echo $_SESSION['success'];
-          	unset($_SESSION['success']);
-          ?>
-        </p>
-      </div>
+        <div class="error success">
+          <p>
+            <?php
+            echo $_SESSION['success'];
+            unset($_SESSION['success']);
+            ?>
+          </p>
+        </div>
       <?php endif ?>
 
-      <!-- logged in user information -->
-      <?php  if (isset($_SESSION['username'])) : ?>
-      <p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
-      <?php endif ?>
     </div>
     <div id="slideshow-container">
       <img src="./media/landing/1.jpg" id="slides">
@@ -123,15 +122,15 @@
           <li>Rates starting at $300/night</li>
         </ul>
       </p>
-      <?php  if (!isset($_SESSION['username'])) : ?>
-      <a name="more" href="login.php" style="color: red;">
-        <p>You must Login to reserve a room</p>
-      </a>
+      <?php if (!isset($_SESSION['username'])) : ?>
+        <a name="more" href="login.php" style="color: red;">
+          <p>You must Login to reserve a room</p>
+        </a>
       <?php endif ?>
-      <?php  if (isset($_SESSION['username'])) : ?>
-      <a name="more"  href="index.php?cottageName=Tomato Cottage">
-	    <p>Reserve</p>
-      </a>
+      <?php if (isset($_SESSION['username'])) : ?>
+        <a name="more" href="index.php?cottageName=Tomato Cottage">
+          <p>Reserve</p>
+        </a>
       <?php endif ?>
     </div>
 
@@ -146,15 +145,15 @@
           <li>Rates starting at $150/night</li>
         </ul>
       </p>
-      <?php  if (!isset($_SESSION['username'])) : ?>
-      <a name="more" href="login.php" style="color: red;">
-        <p>You must Login to reserve a room</p>
-      </a>
+      <?php if (!isset($_SESSION['username'])) : ?>
+        <a name="more" href="login.php" style="color: red;">
+          <p>You must Login to reserve a room</p>
+        </a>
       <?php endif ?>
-      <?php  if (isset($_SESSION['username'])) : ?>
-      <a name="more" href="index.php?cottageName=Watermelon Cottage">
-	    <p>Reserve</p>
-      </a>
+      <?php if (isset($_SESSION['username'])) : ?>
+        <a name="more" href="index.php?cottageName=Watermelon Cottage">
+          <p>Reserve</p>
+        </a>
       <?php endif ?>
     </div>
 
@@ -169,15 +168,15 @@
           <li>Rates starting at $150/night</li>
         </ul>
       </p>
-      <?php  if (!isset($_SESSION['username'])) : ?>
-      <a name="more" href="login.php" style="color: red;">
-        <p>You must Login to reserve a room</p>
-      </a>
+      <?php if (!isset($_SESSION['username'])) : ?>
+        <a name="more" href="login.php" style="color: red;">
+          <p>You must Login to reserve a room</p>
+        </a>
       <?php endif ?>
-      <?php  if (isset($_SESSION['username'])) : ?>
-      <a name="more" href="index.php?cottageName=Corn Cottage">
-	    <p>Reserve</p>
-      </a>
+      <?php if (isset($_SESSION['username'])) : ?>
+        <a name="more" href="index.php?cottageName=Corn Cottage">
+          <p>Reserve</p>
+        </a>
       <?php endif ?>
     </div>
 
@@ -192,15 +191,15 @@
           <li>Rates starting at $100/night</li>
         </ul>
       </p>
-      <?php  if (!isset($_SESSION['username'])) : ?>
-      <a name="more" href="login.php" style="color: red;">
-        <p>You must Login to reserve a room</p>
-      </a>
+      <?php if (!isset($_SESSION['username'])) : ?>
+        <a name="more" href="login.php" style="color: red;">
+          <p>You must Login to reserve a room</p>
+        </a>
       <?php endif ?>
-      <?php  if (isset($_SESSION['username'])) : ?>
-      <a name="more" href="index.php?cottageName=Sunflower Cottage">
-	    <p>Reserve</p>
-      </a>
+      <?php if (isset($_SESSION['username'])) : ?>
+        <a name="more" href="index.php?cottageName=Sunflower Cottage">
+          <p>Reserve</p>
+        </a>
       <?php endif ?>
     </div>
 
@@ -215,15 +214,15 @@
           <li>Rates starting at $100/night</li>
         </ul>
       </p>
-      <?php  if (!isset($_SESSION['username'])) : ?>
-      <a name="more" href="login.php" style="color: red;">
-        <p>You must Login to reserve a room</p>
-      </a>
+      <?php if (!isset($_SESSION['username'])) : ?>
+        <a name="more" href="login.php" style="color: red;">
+          <p>You must Login to reserve a room</p>
+        </a>
       <?php endif ?>
-      <?php  if (isset($_SESSION['username'])) : ?>
-      <a name="more" href="index.php?cottageName=Wheat Cottage">
-	    <p>Reserve</p>
-      </a>
+      <?php if (isset($_SESSION['username'])) : ?>
+        <a name="more" href="index.php?cottageName=Wheat Cottage">
+          <p>Reserve</p>
+        </a>
       <?php endif ?>
     </div>
 

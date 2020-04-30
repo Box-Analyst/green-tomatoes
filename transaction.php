@@ -83,14 +83,14 @@
     <option value="amex">AMEX</option>
 	  </select>
 	  <br><br>
-	      <h4>Please Note: You will be charged a $20 Reservation fee. Your stay fee will be charged upon check-in.</h4>
+		  <h4>Please Note: You will be charged a $20 Reservation fee. Your stay fee will be charged upon check-in.</h4>
 		    <label for="cardNumber"><b>Card Number</b></label>
-        <input type="text"name="cardNumber" maxlength="16" required>
+        <input type="text"name="cardNumber"  maxlength="16" required>
 		    <label for="expDate"><b>Expiration Date</b></label>
-        <input type="text"name="expDate" maxlength="5" required>
+        <input type="text"name="expDate"  maxlength="5" required>
 		   <label for="svcNumber"><b>CVV Number</b></label>
-        <input type="text"name="svcNumber"maxlength="3" required>
-	      <label for="CardholderName"><b>Cardholder Name</b></label>
+        <input type="text"name="svcNumber"  maxlength="3" required>
+		   <label for="CardholderName"><b>Cardholder Name</b></label>
         <input type="text"name="CardholderName"  maxlength="30" required>
 		   <label for="BillingZip"><b>Billing Zip</b></label>
         <input type="text"name="BillingZip"  maxlength="5" required>

@@ -185,7 +185,7 @@ if (isset($_POST['makepayment'])) {
     $msg = "Reservation $reservationID for $cottageID \nPaid on: $datePaid \nCheck in date: $checkin \nCheck out date: $checkout";
     $msg = wordwrap($msg, 70);
     $headers = 'From: scademail@web1.paulmickey.com';
-    mail("greentomatoes@thayn.me", "Green Tomatoes Reservation", $msg, $headers);
+    mail("paul@paulmickey.com", "Green Tomatoes Reservation", $msg, $headers);
     //mail("$email", "Green Tomatoes Reservation", $msg, $headers);
 
     echo '<script>alert("Reservation Successful!")</script>';

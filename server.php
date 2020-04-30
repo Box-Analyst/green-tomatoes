@@ -125,24 +125,25 @@ if (isset($_POST['checkreservation'])) {
   $cottageID = $_SESSION['cottageID'];
 
   if (count($errors) == 0) {
-    $query = "SELECT lastStayDate FROM COTTAGE WHERE cottageID = '$cottageID'";
-    $results = mysqli_query($db, $query);
-    $results1 = mysqli_fetch_array($results);
-
     $date1 = date('Y-m-d', strtotime($checkin));
-    $date2 = date('Y-m-d', strtotime($results1[0]));
-    $date3 = date('Y-m-d', strtotime($checkout));
+    $date2 = date('Y-m-d', strtotime($checkout));
 
+    $query = "SELECT startDate, endDate
+	FROM STAYLOG A, RESERVATION B, COTTAGE C
+	WHERE (A.customerID = B.customerID AND B.cottageID = C.cottageID AND C.cottageID = '$cottageID')
+	AND (startDate <= '$date2' AND endDate >= '$date1')";
+    $results = mysqli_query($db, $query);
+	
     if ($date1 < date("Y-m-d")) {
       array_push($errors, "Check-in date is in the past.");
     }
     if (count($errors) == 0) {
-      if ($date1 > $date2) {
+      if (mysqli_num_rows(results) === 0) {
         $_SESSION['checkin'] = $date1;
-        $_SESSION['checkout'] = $date3;
+        $_SESSION['checkout'] = $date2;
         header('location: transaction.php');
       } else {
-        array_push($errors, "Check-in date is not available. Try a later date.");
+        array_push($errors, "Date range is not available. Try a different date.");
       }
     }
   }

@@ -138,7 +138,7 @@ if (isset($_POST['checkreservation'])) {
       array_push($errors, "Check-in date is in the past.");
     }
     if (count($errors) == 0) {
-      if (mysqli_num_rows(results) === 0) {
+      if (mysqli_num_rows($results) == 0) {
         $_SESSION['checkin'] = $date1;
         $_SESSION['checkout'] = $date2;
         header('location: transaction.php');

@@ -9,6 +9,15 @@ if (isset($_GET['logout'])) {
   unset($_SESSION['username']);
   header("location: login.php");
 }
+if (isset($_GET['cx'])) {
+  echo '<script>alert("Reservation canceled!")</script>';
+}
+if (isset($_GET['c0'])) {
+  echo '<script>alert("Checked out!")</script>';
+}
+if (isset($_GET['c1'])) {
+  echo '<script>alert("Checked in!")</script>';
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,6 +38,14 @@ if (isset($_GET['logout'])) {
   <meta http-equiv="X-Frame-Options" content="sameorigin">
   <link rel='manifest' href='./manifest.json'>
 </head>
+
+<script>
+  function confirmAction(refUrl) {
+    if (confirm("Are you sure you want to perform this action?")) {
+      document.location = refUrl;
+    }
+  }
+</script>
 
 <body>
 
@@ -71,7 +88,7 @@ if (isset($_GET['logout'])) {
     <p>Use this page to check in/out and request services after you arrive!</p>
     <!-- TODO: make button say "canel reservation" if before reservation date -->
     <?php if (($_SESSION['checkin'] > date("Y-m-d")) && ($_SESSION['checkin'] != '0000-00-00')) : ?>
-      <button type="button" class="signinbtn" onclick="location.href='server.php?cancel'" style="background-color: darkred;">
+      <button type="button" class="signinbtn" onclick="javascript:confirmAction('server.php?cancel')" style="background-color: darkred;">
         <h2>
           <div>Cancel Reservation</div>
         </h2>
@@ -85,14 +102,14 @@ if (isset($_GET['logout'])) {
       </button>
     <?php endif ?>
     <?php if (($_SESSION['checkedIn'] == '0') && ($_SESSION['checkin'] <= date("Y-m-d"))) : ?>
-      <button type="button" class="signinbtn" onclick="location.href='server.php?checkedIn=1'">
+      <button type="button" class="signinbtn" onclick="javascript:confirmAction('server.php?checkedIn=1')">
         <h2>
           <div>Check In</div>
         </h2>
       </button>
     <?php endif ?>
     <?php if (($_SESSION['checkedIn'] == '1')) : ?>
-      <button type="button" class="signinbtn" onclick="location.href='server.php?checkedIn=0'">
+      <button type="button" class="signinbtn" onclick="javascript:confirmAction('server.php?checkedIn=0')">
         <h2>
           <div>Check Out</div>
         </h2>

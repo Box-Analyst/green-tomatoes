@@ -188,6 +188,8 @@ if (isset($_POST['makepayment'])) {
     mail("greentomatoes@thayn.me", "Green Tomatoes Reservation", $msg, $headers);
     //mail("$email", "Green Tomatoes Reservation", $msg, $headers);
 
+    echo '<script>alert("Reservation Successful!")</script>';
+
     header('location: index.php');
   }
 }
@@ -242,7 +244,7 @@ if (isset($_GET['cancel'])) {
   $tid = $_SESSION['transaction'];
   $query = "UPDATE STAYLOG SET startDate='0000-00-00',endDate='0000-00-00' WHERE stayLogID = (SELECT stayLogID FROM RESERVATION WHERE transactionID = '$tid')";
   mysqli_query($db, $query);
-  header("location: customerdash.php");
+  header("location: customerdash.php?cx");
 }
 
 if (isset($_GET['checkedIn'])) {
@@ -252,18 +254,19 @@ if (isset($_GET['checkedIn'])) {
   $query = "UPDATE CUSTOMER SET checkedIn='$chk' WHERE customerID = '$cust'";
   mysqli_query($db, $query);
 
-  if ($chk == '0'){
+  if ($chk == '0') {
     $msg = "A user has checked out!";
     $msg = wordwrap($msg, 70);
     $headers = 'From: scademail@web1.paulmickey.com';
     mail("greentomatoes@thayn.me", "Green Tomatoes - Front Desk Alert", $msg, $headers);
+    header("location: customerdash.php?c0");
   }
-  if ($chk == '1'){
+  if ($chk == '1') {
     $msg = "A user has checked in!";
     $msg = wordwrap($msg, 70);
     $headers = 'From: scademail@web1.paulmickey.com';
     mail("greentomatoes@thayn.me", "Green Tomatoes - Front Desk Alert", $msg, $headers);
+    header("location: customerdash.php?c1");
   }
-
-  header("location: customerdash.php");
 }
+?>

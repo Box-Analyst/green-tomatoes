@@ -262,6 +262,17 @@ a:active {
     animation-duration: 1s;
   }
 
+  #mobiMenu nav ul {
+    display: inline-block;
+    list-style: none;
+    padding-top: 1em;
+    margin-left: -4em;
+  }
+
+  #mobiMenu nav ul li {
+    float: inline-start;
+  }
+
   #slides {
     display: block;
     width: 175%;

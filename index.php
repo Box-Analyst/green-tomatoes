@@ -114,12 +114,12 @@ if (isset($_GET['cottageName'])) {
     <div id="resCard">
       <img src="./media/landing/4.jpg" id="resimg">
       <h4>Tomato Cottage</h4>
-      <p>This is our primier cottage. Featuring wonderful views of our fields and pond, the Tomato Cottage is the place
+      <p>This is our Tomato Cottage. Featuring wonderful views of our fields and pond, the Tomato Cottage is the place
         to be.<br>
         <ul>
           <li>2 bedroom, 2 bath with living room and fully stocked kitchen</li>
           <li>Cable TV and High-Speed Internet</li>
-          <li>Rates starting at $300/night</li>
+          <li>Rates starting at $200/night, $5000/month</li>
         </ul>
       </p>
       <?php if (!isset($_SESSION['username'])) : ?>
@@ -137,12 +137,12 @@ if (isset($_GET['cottageName'])) {
     <div id="resCard">
       <img src="./media/landing/2.jpg" id="resimg">
       <h4>Watermelon Cottage</h4>
-      <p>This is our midrange cottage. Featuring wonderful views of a field and some woods, the Watermelon Cottage is
+      <p>This is our Watermelon Cottage. Featuring wonderful views of a field and some woods, the Watermelon Cottage is
         the place to be.<br>
         <ul>
           <li>2 bedroom, 2 bath with living room and fully stocked kitchen</li>
           <li>Cable TV and High-Speed Internet</li>
-          <li>Rates starting at $150/night</li>
+          <li>Rates starting at $200/night, $5000/month</li>
         </ul>
       </p>
       <?php if (!isset($_SESSION['username'])) : ?>
@@ -165,7 +165,7 @@ if (isset($_GET['cottageName'])) {
         <ul>
           <li>2 bedroom, 2 bath with living room and fully stocked kitchen</li>
           <li>Cable TV and High-Speed Internet</li>
-          <li>Rates starting at $150/night</li>
+          <li>Rates starting at $200/night, $5000/month</li>
         </ul>
       </p>
       <?php if (!isset($_SESSION['username'])) : ?>
@@ -183,12 +183,12 @@ if (isset($_GET['cottageName'])) {
     <div id="resCard">
       <img src="./media/landing/1.jpg" id="resimg">
       <h4>Sunflower Cottage</h4>
-      <p>This is on of our budget cottages. Featuring wonderful views of a sunflower field, the Sunflower Cottage is the
+      <p>This is our Sunflower Cottage. Featuring wonderful views of a sunflower field, the Sunflower Cottage is the
         place to be.<br>
         <ul>
           <li>2 bedroom, 1 bath with a outdoor patio and a fully stocked kitchen</li>
           <li>landline phone</li>
-          <li>Rates starting at $100/night</li>
+          <li>Rates starting at $200/night, $5000/month</li>
         </ul>
       </p>
       <?php if (!isset($_SESSION['username'])) : ?>
@@ -206,12 +206,12 @@ if (isset($_GET['cottageName'])) {
     <div id="resCard">
       <img src="./media/landing/3.jpg" id="resimg">
       <h4>Wheat Cottage</h4>
-      <p>This is on of our budget cottages. Featuring wonderful views of a wheat field, the Sunflower Cottage is the
+      <p>This is our Wheat Cottage. Featuring wonderful views of a wheat field, the Wheat Cottage is the
         place to be.<br>
         <ul>
           <li>2 bedroom, 1 bath with a outdoor patio and a fully stocked kitchen</li>
           <li>landline phone</li>
-          <li>Rates starting at $100/night</li>
+          <li>Rates starting at $200/night, $5000/month</li>
         </ul>
       </p>
       <?php if (!isset($_SESSION['username'])) : ?>

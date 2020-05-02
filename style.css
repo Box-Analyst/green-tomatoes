@@ -107,7 +107,9 @@ nav ul li {
 }
 
 nav #menu,
-header #mobiMenu {
+header #mobiMenu,
+#mobiMenu nav ul,
+#menuClose {
   display: none;
 }
 
@@ -271,6 +273,10 @@ a:active {
 
   #mobiMenu nav ul li {
     float: inline-start;
+  }
+
+  #menuClose {
+    display: inline-block;
   }
 
   #slides {

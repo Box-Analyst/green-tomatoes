@@ -49,12 +49,15 @@ if (isset($_GET['c1'])) {
 
 <body>
 
-  <header>
+<header>
     <h1><a id="green">Green </a><a id="red">Tomatoes</a></h1>
     <nav>
       <ul id="horizontal-list">
         <li><a href="index.php" class="active">Home</a></li>
         <li><a href="about.php">About</a></li>
+        <?php if (isset($_SESSION['username'])) : ?>
+          <li><a href="customerdash.php"><?php echo $_SESSION['username']; ?></a></li>
+        <?php endif ?>
         <?php if (isset($_SESSION['username'])) : ?>
           <li><a href="index.php?logout='1'">Logout</a></li>
         <?php endif ?>
@@ -69,7 +72,21 @@ if (isset($_GET['c1'])) {
       </h1>
     </nav>
     <div id="mobiMenu">
-      <h1 id="red"><i class="fas fa-seedling"></i></h1>
+      <nav>
+        <ul id="horizontal-list">
+          <li><a href="index.php" class="active">Home</a></li>
+          <li><a href="about.php">About</a></li>
+          <?php if (isset($_SESSION['username'])) : ?>
+            <li><a href="customerdash.php"><?php echo $_SESSION['username']; ?></a></li>
+          <?php endif ?>
+          <?php if (isset($_SESSION['username'])) : ?>
+            <li><a href="index.php?logout='1'">Logout</a></li>
+          <?php endif ?>
+          <?php if (!isset($_SESSION['username'])) : ?>
+            <li><a href="login.php">Login</a></li>
+          <?php endif ?>
+        </ul>
+      </nav>
       <h1 id="menuClose"><i class="fas fa-times" onclick="mobiMenuClose()"></i></h1>
     </div>
   </header>
@@ -124,7 +141,7 @@ if (isset($_GET['c1'])) {
       </button>
     <?php endif ?>
     <?php if (isset($_SESSION['username'])) : ?>
-      <button type="button" class="signinbtn">
+      <button type="button" class="signinbtn" onclick="window.location.href='about.php'">
         <h2>
           <div>Contact Front Desk</div>
         </h2>

@@ -9,13 +9,21 @@
 </head>
 
 <body>
-  <header>
+<header>
     <h1><a id="green">Green </a><a id="red">Tomatoes</a></h1>
     <nav>
       <ul id="horizontal-list">
         <li><a href="index.php" class="active">Home</a></li>
         <li><a href="about.php">About</a></li>
-        <li><a href="login.php">Login</a></li>
+        <?php if (isset($_SESSION['username'])) : ?>
+          <li><a href="customerdash.php"><?php echo $_SESSION['username']; ?></a></li>
+        <?php endif ?>
+        <?php if (isset($_SESSION['username'])) : ?>
+          <li><a href="index.php?logout='1'">Logout</a></li>
+        <?php endif ?>
+        <?php if (!isset($_SESSION['username'])) : ?>
+          <li><a href="login.php">Login</a></li>
+        <?php endif ?>
       </ul>
       <h1>
         <button type="button" id="menu" onclick="mobiMenuOpen()">
@@ -24,7 +32,21 @@
       </h1>
     </nav>
     <div id="mobiMenu">
-      <h1 id="red"><i class="fas fa-seedling"></i></h1>
+      <nav>
+        <ul id="horizontal-list">
+          <li><a href="index.php" class="active">Home</a></li>
+          <li><a href="about.php">About</a></li>
+          <?php if (isset($_SESSION['username'])) : ?>
+            <li><a href="customerdash.php"><?php echo $_SESSION['username']; ?></a></li>
+          <?php endif ?>
+          <?php if (isset($_SESSION['username'])) : ?>
+            <li><a href="index.php?logout='1'">Logout</a></li>
+          <?php endif ?>
+          <?php if (!isset($_SESSION['username'])) : ?>
+            <li><a href="login.php">Login</a></li>
+          <?php endif ?>
+        </ul>
+      </nav>
       <h1 id="menuClose"><i class="fas fa-times" onclick="mobiMenuClose()"></i></h1>
     </div>
   </header>

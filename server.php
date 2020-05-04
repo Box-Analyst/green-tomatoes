@@ -183,9 +183,10 @@ if (isset($_POST['makepayment'])) {
     $_SESSION['stayLogID'] = $stayLogID;
 
     $email = $_SESSION['username'];
-    $msg = "Reservation $reservationID for $cottageID \nPaid on: $datePaid \nCheck in date: $checkin \nCheck out date: $checkout";
+    $msg = "New reservation for customer ID $customerID\n Reservation $reservationID for cottage #$cottageID \nPaid on: $datePaid \nCheck in date: $checkin \nCheck out date: $checkout";
     $msg = wordwrap($msg, 70);
     $headers = 'From: scademail@web1.paulmickey.com';
+    mail("greentomatoes@thayn.me", "Green Tomatoes - New Reservation", $msg, $headers);
     mail("paul@paulmickey.com", "Green Tomatoes Reservation", $msg, $headers);
     //mail("$email", "Green Tomatoes Reservation", $msg, $headers);
 
@@ -245,6 +246,20 @@ if (isset($_GET['cancel'])) {
   $tid = $_SESSION['transaction'];
   $query = "UPDATE STAYLOG SET startDate='0000-00-00',endDate='0000-00-00' WHERE stayLogID = (SELECT stayLogID FROM RESERVATION WHERE transactionID = '$tid')";
   mysqli_query($db, $query);
+
+  $cust = $_SESSION['customerID'];
+  $reservationID = $_SESSION['reservationID'];
+  $query1 = "SELECT cottageID FROM RESERVATION WHERE customerID = '$cust'";
+  $results1 = mysqli_query($db, $query1);
+  $row1 = mysqli_fetch_array($results1);
+  $cottageID = $row1[0];
+
+  $msg = "Reservation $reservationID for customer ID $cust at cottage #$cottageID has been canceled.";
+  $msg = wordwrap($msg, 70);
+  $headers = 'From: scademail@web1.paulmickey.com';
+  mail("greentomatoes@thayn.me", "Green Tomatoes - Reservation Cancelation", $msg, $headers);
+  mail("paul@paulmickey.com", "Green Tomatoes - Cancelation Confirmation", $msg, $headers);
+
   header("location: customerdash.php?cx");
 }
 
@@ -255,18 +270,25 @@ if (isset($_GET['checkedIn'])) {
   $query = "UPDATE CUSTOMER SET checkedIn='$chk' WHERE customerID = '$cust'";
   mysqli_query($db, $query);
 
+  $query = "SELECT cottageID FROM RESERVATION WHERE customerID = '$cust'";
+  $results = mysqli_query($db, $query);
+  $row = mysqli_fetch_array($results);
+  $cottageID = $row[0];
+
   if ($chk == '0') {
-    $msg = "A user has checked out!";
+    $msg = "Customer ID $cust has checked out!\nReservation $reservationID for cottage #$cottageID";
     $msg = wordwrap($msg, 70);
     $headers = 'From: scademail@web1.paulmickey.com';
     mail("greentomatoes@thayn.me", "Green Tomatoes - Front Desk Alert", $msg, $headers);
+    mail("paul@paulmickey.com", "Green Tomatoes - Check Out Confirmation", $msg, $headers);
     header("location: customerdash.php?c0");
   }
   if ($chk == '1') {
-    $msg = "A user has checked in!";
+    $msg = "Customer ID $cust has checked in!\nReservation $reservationID for cottage #$cottageID";
     $msg = wordwrap($msg, 70);
     $headers = 'From: scademail@web1.paulmickey.com';
     mail("greentomatoes@thayn.me", "Green Tomatoes - Front Desk Alert", $msg, $headers);
+    mail("paul@paulmickey.com", "Green Tomatoes - Check In Confirmation", $msg, $headers);
     header("location: customerdash.php?c1");
   }
 }
